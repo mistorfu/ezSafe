@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<b:beans xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.springframework.org/schema/security"
+         xsi:schemaLocation="http://www.springframework.org/schema/security
+         http://www.springframework.org/schema/security/spring-security-3.2.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+       <!-- Global Security Settings -->
+       <global-method-security pre-post-annotations="enabled" />
+
+       <!-- Form and Security Access Configuration -->
+       <http use-expressions="true" auto-config="true" access-denied-page="/403" disable-url-rewriting="true">
+           <intercept-url pattern="/login.html" access="permitAll" />
+           <intercept-url pattern="/avatar/ezFireExt/login/assets/**" access="permitAll" />
+           <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+           <intercept-url pattern="/admin.jsp" access="hasRole('ROLE_ADMIN')" />
+
+           <session-management invalid-session-url="/login?time=1">
+                     <concurrency-control max-sessions="1" expired-url="/login?time=1" />
+           </session-management>
+
+           <form-login login-page="/login.html" login-processing-url="/login" default-target-url="/main" always-use-default-target="true"
+                       authentication-failure-url="/login.html?err=1" username-parameter="username" password-parameter="password" />
+
+           <logout logout-url="/logout" logout-success-url="/login.html?out=1" delete-cookies="JSESSIONID" invalidate-session="true" />
+
+              <!--<intercept-url requires-channel="https" pattern="/login*" access="permitAll()" />-->
+              <!--<intercept-url requires-channel="https" pattern="/**" access="hasRole('ROLE_USER')" />-->
+       </http>
+
+       <!-- ADD THE DATASOURCES HERE -->
+</b:beans>

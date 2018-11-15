@@ -1,0 +1,46 @@
+.flfgFjxx-container:hover .flfg-download-icon {
+    background-image: url("../../../icons/zbzs-zbdt-xz-h.png") ;
+}
+
+.flfgFjxx-container:hover .flfgFjxx-fjmc {
+    color: #ffb317;
+}
+
+.flfg-fjxx {
+    height: 54%;
+    align-items: flex-end;
+    min-width:0;
+    outline:none;
+    flex: 11;
+}
+
+
+.flfgMiniFireEdit-wrap {
+    width: 99%;
+    height: 91%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+    background-color: rgb(18,84,138);
+}
+
+.flfgMiniFireEdit-wrap .k-picker-wrap .k-input {
+    background-color: transparent;
+    border-color: #59a4d9;
+    height: 100%;
+    line-height: 1.822916666666667vw;
+    min-height: 1.5625vw;
+    padding: 0;
+    font-size: 17px;
+}
+
+.flfgMiniFireEdit-wrap .dropdownlist {
+    width: 95%;
+    height: 94%;
+    text-decoration: none;
+    box-shadow: none;
+    background: transparent;
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.28) inset;
+}
+
+.flfgMiniFireEdit-wrap .flex1::after,.flfgMiniFireEdit-wrap .flex2::after{
+    width:1.2vw;
+}

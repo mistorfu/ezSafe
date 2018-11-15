@@ -1,0 +1,16 @@
+webRtcVideo控件使用
+
+  使用jquery方法 kdvideo使用webRtcVideo控件。
+  示例：var video = $("").kdvideo(options). options是配置对象。可进行以下设置：
+    windowNum : 设置分屏数目，默认为1，可选数目有（1,2,4,6,8,9,16）。
+	wsurl: 设置webStorm地址。
+	poster: 设置视频播放前的预览图。
+	hiddenButtons :设置要隐藏的按钮(数组)，可选play(播放) stop(停止)  call(语音) playHistory(回放) return(返回) slow(减速) resume(继续播放) fast(加速) voice(声音) full(全屏) endfull(退出全屏)。
+
+  调用方法返回的对象中还包括：
+	windows: 播放窗口对象（数组）。
+	endPlay: 关闭视频连接的方法。默认全部关闭。参数可选为某一块屏幕。
+	fillWrapper:调用方法可以设置视频撑满Wrapper。
+
+  进行播放需要调用返回对象windows中的realPlay方法。
+	video.windows[0].realPlay(dev_id); 参数为国标ID。

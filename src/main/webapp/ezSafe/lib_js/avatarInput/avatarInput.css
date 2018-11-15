@@ -1,0 +1,54 @@
+.avatar-input-wrapper {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: inline-block;
+}
+
+.avatar-input-wrapper {
+    border: 1px solid #d1d1d1;
+}
+
+.avatar-input-wrapper:hover {
+    border: 1px solid #3096e1;
+}
+
+.avatar-input-wrapper .avatar-input {
+    padding: 0 0 0 2px;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    line-height: 200%;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    color: #444444;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.avatar-input-wrapper .avatar-input-text-tip {
+    color: #96a7b2;
+}
+
+.avatar-input-wrapper .avatar-input-clear {
+    float: right;
+    margin: 6px 5px 0 5px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.avatar-input-wrapper .avatar-input-clear {
+    background: url("images/cancel-normal.png");
+}
+
+.avatar-input-wrapper .avatar-input-clear:hover {
+    background: url("images/cancel-hover.png");
+}

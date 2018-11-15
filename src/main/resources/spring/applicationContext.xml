@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="springContextUtil" class="com.kedacom.avatar.base.web.context.SpringContextUtil" lazy-init="false" />
+
+    <context:component-scan base-package="com.kedacom" />
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id="oracleDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.oracle.driverClassName}" />
+        <property name="url" value="${jdbc.oracle.url}" />
+        <property name="username" value="${jdbc.oracle.username}" />
+        <property name="password" value="${jdbc.oracle.password}" />
+    </bean>
+
+    <bean id="multipleDataSource" class="com.kedacom.ezSafe.common.core.AvatarMultiDataSource">
+        <property name="defaultTargetDataSource" ref="oracleDataSource"/>
+        <property name="targetDataSources">
+            <map>
+                <entry key="oracleDataSource" value-ref="oracleDataSource"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="multipleDataSource" />
+    </bean>
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="multipleDataSource" />
+        <property name="mapperLocations" value="classpath*:com/kedacom/**/*.xml" />
+		<property name="configLocation" value="classpath:myBatis-config.xml" />
+        <property name="typeAliasesPackage" value="com.kedacom.**.model, com.kedacom.**.domain" />
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--<property name="basePackage" value="com.kedacom.*.dao" />-->
+        <property name="basePackage" value="com.kedacom.*" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+
+</beans>

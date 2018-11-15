@@ -1,0 +1,131 @@
+package com.kedacom.ezSafe.common.api;
+
+import com.kedacom.ezSafe.common.domain.BQjXzqy;
+import com.kedacom.ezSafe.common.service.BQjXzqyService;
+import com.kedacom.ezSafe.common.service.EsCommonService;
+import com.kedacom.ezSafe.common.service.UserService;
+import com.kedacom.ezSafe.common.utils.ZdxCache;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/common-api")
+public class CommonApi {
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private BQjXzqyService bQjXzqyService;
+
+    @Autowired
+    private EsCommonService commonService;
+
+    @RequestMapping(value = "/getUserInfo", produces = {"application/json"})
+    public Map getUserInfo(String userCode) {
+        if (userCode == null || userCode.equals("")) {
+            return null;
+        } else {
+            return userService.getUserInfo(userCode);
+        }
+    }
+
+    @RequestMapping(value = "/getXzqhTree", method = RequestMethod.GET, produces = {"application/json"})
+    public List<Map> getXzqhTree(@RequestParam(required = false, value = "id") String id
+            , @RequestParam(required = false , value = "imgUrl" , defaultValue = "") String imgUrl
+            , @RequestParam(required = false , defaultValue = "false") Boolean noHead
+            , @RequestParam(required = false , defaultValue = "3") Integer minLevel) {
+        List<Map> tree = new ArrayList<Map>();
+        String[] ids = id.split(";");
+        id = ids[0];
+        if (ids[0].equals("1") && ids.length > 1) id = "'-1'";
+
+        if (id.length() < 6 || id.endsWith("00")) {
+            List<BQjXzqy> dataList = bQjXzqyService.getChildrenByXZBM(id);
+            List<String> xzbms = new ArrayList<String>();
+            for (BQjXzqy item : dataList) {
+                xzbms.add(item.getXzbm());
+            }
+            Map<String, Integer> childrenNumMap = bQjXzqyService.checkXzqyChildren(xzbms);
+            Map param = new HashMap();
+            param.put("ssxq.xzqhnbbm", "*" + id + "*");
+            param.put("aggField", "SSXQ.XZQHBH");
+            childrenNumMap.putAll(commonService.getAggregationCount("a_ez_wgxx", "wgxx", param));
+            for (BQjXzqy item : dataList) {
+                Map node = new HashMap();
+                String xzbm = item.getXzbm();
+                String value = xzbm + ";" + item.getXzmc() + ";" + item.getXznbbm();
+                node.put("id", xzbm);
+                node.put("text", item.getXzmc());
+                node.put("innerCode", value);
+                node.put("xzbm", xzbm);
+                node.put("xzmc", item.getXzmc());
+                node.put("xzjc", item.getXzjc());
+                node.put("zfjg", item.getZfjg());
+                node.put("xmin", item.getXmin());
+                node.put("ymin", item.getYmin());
+                node.put("xmax", item.getXmax());
+                node.put("ymax", item.getYmax());
+                node.put("xcenter", item.getXcenter());
+                node.put("ycenter", item.getYcenter());
+                node.put("xznbbm", item.getXznbbm());
+                node.put("xzjb", item.getXzjb());
+                if (childrenNumMap.containsKey(xzbm)) {
+                    node.put("ImageUrl", imgUrl);
+                    node.put("hasChildren", true);
+                } else {
+                    node.put("hasChildren", false);
+                }
+                tree.add(node);
+            }
+        } else {
+            Map param = new HashMap();
+            param.put("ssxq.xzqhbh", id);
+            param.put("limit", 100);
+            List<Map> dataList = commonService.selectByMap("a_ez_wgxx", "wgxx", param);
+            for (Map item : dataList) {
+                Map node = new HashMap();
+                node.put("id", item.get("WGBH"));
+                node.put("text", item.get("WGMC"));
+                node.put("innerCode", item.get("WGBH") + ";" + item.get("WGMC"));
+                node.put("hasChildren", false);
+
+                tree.add(node);
+            }
+        }
+
+        return tree;
+    }
+
+    @RequestMapping(value = "/getZdx" , method = RequestMethod.GET)
+    public List<Map<String , Object>> getZdx(@RequestParam String zdlx) {
+        return ZdxCache.getZdxTreeByZdlx(zdlx , false);
+    }
+
+    @RequestMapping(value = "/getXzqhList", method = RequestMethod.GET)
+    public List<Map> getXzqhList(@RequestParam Map<String, Object> params) {
+        if (params.containsKey("pageSize")) params.put("limit", params.get("pageSize"));
+        if (params.containsKey("skip")) params.put("offset", params.get("skip"));
+        List<Map> xzqhList = commonService.selectByMap("a_ez_xzqy", "xzqy", params);
+        params.put("wgmc", params.get("xzmc"));
+        params.put("fields", "WGBH,WGMC");
+        params.remove("xzmc");
+        params.remove("xznbbm");
+        xzqhList.addAll(commonService.selectByMap("a_ez_wgxx", "wgxx", params));
+        return xzqhList;
+    }
+
+    @RequestMapping(value = "/getWgxx", method = RequestMethod.GET)
+    public Map getWgxx(@RequestParam Map<String, Object> params) {
+        if (params.containsKey("pageSize")) params.put("limit", params.get("pageSize"));
+        if (params.containsKey("skip")) params.put("offset", params.get("skip"));
+        return commonService.selectPagedDataByMap("a_ez_wgxx", "wgxx", params);
+    }
+}

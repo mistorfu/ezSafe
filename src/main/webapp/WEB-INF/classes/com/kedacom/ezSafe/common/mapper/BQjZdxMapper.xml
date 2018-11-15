@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kedacom.ezSafe.common.dao.BQjZdxDao">
+
+    <!-- Mapper 生成时间: 2017-9-27 11:02:47 -->
+    <!-- 注意：重新生成时会把之前的mapper重命名为: *Mapper.xml.backup -->
+
+    <!-- 默认缓存
+    <cache />
+    -->
+
+    <resultMap id="BaseResultMap" type="com.kedacom.ezSafe.common.domain.BQjZdx">
+        <id column="ZDBH" property="zdbh" jdbcType="VARCHAR"/>
+        <id column="ZDLX" property="zdlx" jdbcType="VARCHAR"/>
+        <result column="ZDMC" property="zdmc" jdbcType="VARCHAR"/>
+        <result column="ZDJB" property="zdjb" jdbcType="VARCHAR"/>
+        <result column="ZDJC" property="zdjc" jdbcType="VARCHAR"/>
+        <result column="ZDMS" property="zdms" jdbcType="VARCHAR"/>
+        <result column="ZDPY" property="zdpy" jdbcType="VARCHAR"/>
+        <result column="ZDSX" property="zdsx" jdbcType="VARCHAR"/>
+        <result column="NBBM" property="nbbm" jdbcType="VARCHAR"/>
+        <result column="FJBH" property="fjbh" jdbcType="VARCHAR"/>
+        <result column="SFXS" property="sfxs" jdbcType="VARCHAR"/>
+        <result column="SFMR" property="sfmr" jdbcType="VARCHAR"/>
+        <result column="YLZD1" property="ylzd1" jdbcType="VARCHAR"/>
+        <result column="YLZD2" property="ylzd2" jdbcType="VARCHAR"/>
+        <result column="YLZD3" property="ylzd3" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Map_Where_Clause">
+        <if test="zdbh != null and zdbh != ''">
+            and ZDBH = #{zdbh}
+        </if>
+        <if test="zdbhs_in != null and zdbhs_in != ''">
+            and ZDBH in ( ${zdbhs_in} )
+        </if>
+        <if test="zdlx != null and zdlx != ''">
+            and ZDLX = #{zdlx}
+        </if>
+        <if test="zdlxs_in != null and zdlxs_in != ''">
+            and ZDLX in ( ${zdlxs_in} )
+        </if>
+        <if test="zdmc != null and zdmc != ''">
+            and ZDMC = #{zdmc}
+        </if>
+        <if test="zdjb != null and zdjb != ''">
+            and ZDJB = #{zdjb}
+        </if>
+        <if test="zdjc != null and zdjc != ''">
+            and ZDJC = #{zdjc}
+        </if>
+        <if test="zdms != null and zdms != ''">
+            and ZDMS = #{zdms}
+        </if>
+        <if test="zdpy != null and zdpy != ''">
+            and ZDPY = #{zdpy}
+        </if>
+        <if test="zdsx != null and zdsx != ''">
+            and ZDSX = #{zdsx}
+        </if>
+        <if test="nbbm != null and nbbm != ''">
+            and NBBM = #{nbbm}
+        </if>
+        <if test="fjbh != null and fjbh != ''">
+            and FJBH = #{fjbh}
+        </if>
+        <if test="sfxs != null and sfxs != ''">
+            and SFXS = #{sfxs}
+        </if>
+        <if test="sfmr != null and sfmr != ''">
+            and SFMR = #{sfmr}
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''">
+            and YLZD1 = #{ylzd1}
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''">
+            and YLZD2 = #{ylzd2}
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''">
+            and YLZD3 = #{ylzd3}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Where_Clause">
+        <if test="zdbh != null and zdbh != ''">
+            and ZDBH = #{item.zdbh}
+        </if>
+        <if test="zdlx != null and zdlx != ''">
+            and ZDLX = #{item.zdlx}
+        </if>
+        <if test="zdmc != null and zdmc != ''">
+            and ZDMC = #{item.zdmc}
+        </if>
+        <if test="zdjb != null and zdjb != ''">
+            and ZDJB = #{item.zdjb}
+        </if>
+        <if test="zdjc != null and zdjc != ''">
+            and ZDJC = #{item.zdjc}
+        </if>
+        <if test="zdms != null and zdms != ''">
+            and ZDMS = #{item.zdms}
+        </if>
+        <if test="zdpy != null and zdpy != ''">
+            and ZDPY = #{item.zdpy}
+        </if>
+        <if test="zdsx != null and zdsx != ''">
+            and ZDSX = #{item.zdsx}
+        </if>
+        <if test="nbbm != null and nbbm != ''">
+            and NBBM = #{item.nbbm}
+        </if>
+        <if test="fjbh != null and fjbh != ''">
+            and FJBH = #{item.fjbh}
+        </if>
+        <if test="sfxs != null and sfxs != ''">
+            and SFXS = #{item.sfxs}
+        </if>
+        <if test="sfmr != null and sfmr != ''">
+            and SFMR = #{item.sfmr}
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''">
+            and YLZD1 = #{item.ylzd1}
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''">
+            and YLZD2 = #{item.ylzd2}
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''">
+            and YLZD3 = #{item.ylzd3}
+        </if>
+    </sql>
+
+    <sql id="Map_Update_Clause">
+        <if test="zdmc != null and zdmc != ''">
+            ZDMC = #{zdmc},
+        </if>
+        <if test="zdjb != null and zdjb != ''">
+            ZDJB = #{zdjb},
+        </if>
+        <if test="zdjc != null and zdjc != ''">
+            ZDJC = #{zdjc},
+        </if>
+        <if test="zdms != null and zdms != ''">
+            ZDMS = #{zdms},
+        </if>
+        <if test="zdpy != null and zdpy != ''">
+            ZDPY = #{zdpy},
+        </if>
+        <if test="zdsx != null and zdsx != ''">
+            ZDSX = #{zdsx},
+        </if>
+        <if test="nbbm != null and nbbm != ''">
+            NBBM = #{nbbm},
+        </if>
+        <if test="fjbh != null and fjbh != ''">
+            FJBH = #{fjbh},
+        </if>
+        <if test="sfxs != null and sfxs != ''">
+            SFXS = #{sfxs},
+        </if>
+        <if test="sfmr != null and sfmr != ''">
+            SFMR = #{sfmr},
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''">
+            YLZD1 = #{ylzd1},
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''">
+            YLZD2 = #{ylzd2},
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''">
+            YLZD3 = #{ylzd3}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Update_Clause">
+        <if test="zdmc != null and zdmc != ''">
+            ZDMC = #{item.zdmc},
+        </if>
+        <if test="zdjb != null and zdjb != ''">
+            ZDJB = #{item.zdjb},
+        </if>
+        <if test="zdjc != null and zdjc != ''">
+            ZDJC = #{item.zdjc},
+        </if>
+        <if test="zdms != null and zdms != ''">
+            ZDMS = #{item.zdms},
+        </if>
+        <if test="zdpy != null and zdpy != ''">
+            ZDPY = #{item.zdpy},
+        </if>
+        <if test="zdsx != null and zdsx != ''">
+            ZDSX = #{item.zdsx},
+        </if>
+        <if test="nbbm != null and nbbm != ''">
+            NBBM = #{item.nbbm},
+        </if>
+        <if test="fjbh != null and fjbh != ''">
+            FJBH = #{item.fjbh},
+        </if>
+        <if test="sfxs != null and sfxs != ''">
+            SFXS = #{item.sfxs},
+        </if>
+        <if test="sfmr != null and sfmr != ''">
+            SFMR = #{item.sfmr},
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''">
+            YLZD1 = #{item.ylzd1},
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''">
+            YLZD2 = #{item.ylzd2},
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''">
+            YLZD3 = #{item.ylzd3}
+        </if>
+    </sql>
+
+    <sql id="Base_Column_List">
+        ZDBH,
+        ZDLX,
+        ZDMC,
+        ZDJB,
+        ZDJC,
+        ZDMS,
+        ZDPY,
+        ZDSX,
+        NBBM,
+        FJBH,
+        SFXS,
+        SFMR,
+        YLZD1,
+        YLZD2,
+        YLZD3
+    </sql>
+
+    <sql id="Base_Property_List">
+    #{zdbh},
+    #{zdlx},
+    #{zdmc},
+    #{zdjb},
+    #{zdjc},
+    #{zdms},
+    #{zdpy},
+    #{zdsx},
+    #{nbbm},
+    #{fjbh},
+    #{sfxs},
+    #{sfmr},
+    #{ylzd1},
+    #{ylzd2},
+    #{ylzd3}
+    </sql>
+
+    <sql id="Base_Item_Property_List">
+    #{item.zdbh},
+    #{item.zdlx},
+    #{item.zdmc},
+    #{item.zdjb},
+    #{item.zdjc},
+    #{item.zdms},
+    #{item.zdpy},
+    #{item.zdsx},
+    #{item.nbbm},
+    #{item.fjbh},
+    #{item.sfxs},
+    #{item.sfmr},
+    #{item.ylzd1},
+    #{item.ylzd2},
+    #{item.ylzd3}
+    </sql>
+
+    <!-- 对应 Dao.insert 方法 -->
+    <insert id="insert" parameterType="com.kedacom.ezSafe.common.domain.BQjZdx">
+        insert into B_QJ_ZDX (
+        <include refid="Base_Column_List"/>
+        )
+        values (
+        <include refid="Base_Property_List"/>
+        )
+    </insert>
+
+    <!-- 对应 Dao.insertPatch 方法 -->
+    <insert id="insertPatch" parameterType="java.util.List">
+        insert into B_QJ_ZDX (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            <include refid="Base_Item_Property_List"/>
+            )
+        </foreach>
+    </insert>
+
+
+    <!-- 对应 Dao.selectByKey 方法 -->
+    <select id="selectByKey" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from B_QJ_ZDX
+        where 1 = 1
+        and ZDBH = #{zdbh}
+        and ZDLX = #{zdlx}
+    </select>
+
+    <!-- 对应 Dao.selectZdmcChain 方法 -->
+    <select id="selectZdmcChain" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from B_QJ_ZDX
+        where ZDLX = '10001' AND SFXS = '1' START WITH ZDBH = #{zdbh} CONNECT BY PRIOR FJBH = ZDBH
+    </select>
+
+    <!-- 对应 Dao.selectByExample 方法 -->
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from B_QJ_ZDX
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null and orderByClause != ''">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <!-- 对应 Dao.selectByMap 方法 -->
+    <select id="selectByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from B_QJ_ZDX
+        where 1 = 1
+        <include refid="Map_Where_Clause"/>
+        <if test="orderByClause != null and orderByClause != ''">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <!-- 对应 Dao.countByMap 方法 -->
+    <select id="countByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from B_QJ_ZDX
+        where 1 = 1
+        <include refid="Map_Where_Clause"/>
+    </select>
+
+    <!-- 对应 Dao.countByExample 方法 -->
+    <select id="countByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample"
+            resultType="java.lang.Integer">
+        select count(*) from B_QJ_ZDX
+        <if test="_parameter != null and _parameter != ''">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+
+    <!-- 对应 Dao.updateByKey 方法 -->
+    <update id="updateByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjZdx">
+        update B_QJ_ZDX
+        <set>
+            <include refid="Map_Update_Clause"/>
+        </set>
+        where
+        ZDBH = #{zdbh} and
+        ZDLX = #{zdlx}
+    </update>
+
+    <!-- 对应 Dao.updatePatchByKey 方法 -->
+    <update id="updatePatchByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjZdx">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_ZDX
+            <set>
+                <include refid="Map_Item_Update_Clause"/>
+            </set>
+            where
+            #{item.ZDBH} = #{zdbh} and
+            #{item.ZDLX} = #{zdlx}
+        </foreach>
+    </update>
+
+    <!-- 对应 Dao.updateByMap 方法 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        update B_QJ_ZDX
+        <set>
+            <include refid="Map_Update_Clause"/>
+        </set>
+        where 1 = 1 and
+        ZDBH = #{zdbh} and
+        ZDLX = #{zdlx}
+    </update>
+
+    <!-- 对应 Dao.updatePatchByMap 方法 -->
+    <select id="updatePatchByMap" parameterType="java.util.List">
+
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_ZDX
+            <set>
+                <include refid="Map_Item_Update_Clause"/>
+            </set>
+            where 1 = 1 and
+            ZDBH = #{zdbh} and
+            ZDLX = #{zdlx}
+        </foreach>
+    </select>
+
+    <!-- 对应 Dao.deleteByKey 方法 -->
+    <delete id="deleteByKey" parameterType="java.util.Map">
+        delete from B_QJ_ZDX
+        where 1 = 1
+            and ZDBH = #{zdbh}
+            and ZDLX = #{zdlx}
+    </delete>
+
+    <!-- 对应 Dao.deleteByExample 方法 -->
+    <delete id="deleteByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample">
+        delete from B_QJ_ZDX
+        <if test="_parameter != null and _parameter != ''">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+
+    <!-- 对应 Dao.deleteByMap 方法 -->
+    <delete id="deleteByMap" parameterType="java.util.Map">
+        delete from B_QJ_ZDX
+        where 1 = 1
+        <include refid="Map_Item_Where_Clause"/>
+    </delete>
+
+</mapper>

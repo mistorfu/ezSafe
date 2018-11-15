@@ -1,0 +1,152 @@
+.scmb-head {
+    height: 7%;
+}
+
+.scmb-detail-title {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    padding: 1%;
+    font-size: 1.4vw;
+    color: #fff;
+}
+
+.scmbWindow-title-background1 {
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#00528D', endColorStr='#003053', gradientType=0);
+    z-index: 0;
+    background-image: none, -webkit-linear-gradient(top, #00528D 0, #003053 100%);
+    background-image: none, linear-gradient(to bottom, #00528D 0, #003053 100%);
+}
+
+.scmbWindow-title-background2 {
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#003053', endColorStr='#00528D', gradientType=0);
+    z-index: 0;
+    background-image: none, -webkit-linear-gradient(top, #003053 0, #00528D 100%);
+    background-image: none, linear-gradient(to bottom, #003053 0, #00528D 100%);
+}
+
+.scmb-detail-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 6%;
+    width: 3%;
+    background-image: url(../../../../icons/wxxfz-close-normal.png);
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.scmb-detail-xq {
+    float: right;
+    height: 83%;
+    width: 95%;
+    padding: 2%;
+    margin: 0.5%;
+    color: #36a9e1;
+    background: rgb(13, 84, 138);
+    background-clip: padding-box;
+    overflow-y: scroll;
+}
+.scmb-detail-xq::-webkit-scrollbar {
+    display: none
+}
+
+.scmb-detail-form li {
+    display: inline-block;
+    font-size: 1vw;
+    line-height: 2.4vw;
+}
+
+.scmb-s-container {
+    width: 30%;
+}
+
+.scmb-sub-title {
+    color: #fff;
+}
+
+.scmb-s-container .scmb-sub-title {
+    display: inline-block;
+}
+
+.scmb-s-container .limit-content {
+    width: 70%;
+    display: inline-block;
+    border-bottom: rgb(18, 99, 160) dotted 1px;
+}
+
+.scmb-l-container {
+    width: 100%;
+    display: inline-block;
+}
+
+.scmb-l-container .scmb-sub-title {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.scmb-l-container .no-limit-content {
+    width: 92%;
+    display: inline-block;
+}
+
+.no-limit-content .scmb-sub-file {
+    width: 36%;
+    display: inline-block;
+}
+
+.scmb-download-icon {
+    width: 2.4vw;
+    height: 2.4vw;
+    background: url(../../../../icons/zbzs-zbdt-xz-n.png) center no-repeat;
+    background-size: 55%;
+}
+.scmb-sub-file span{
+    color: #C8E4F7;
+}
+
+.scmb-sub-file:hover {
+    cursor: pointer;
+}
+
+.scmb-sub-file:hover span {
+    color: #ffb317;
+}
+
+.scmb-sub-file:hover a {
+    background: url(../../../../icons/zbzs-zbdt-xz-h.png) center no-repeat;
+    background-size: 55%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.border-bottom {
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+}
+.content-border-bottom{
+    padding-bottom: 0.55vw;
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+}
+
+.scmb-sub-file a {
+    float: right;
+}
+
+img.png-mid {
+    width: 1.5vw;
+    vertical-align: middle;
+}

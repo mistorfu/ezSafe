@@ -1,0 +1,151 @@
+html,body{
+    font-family: 'Microsoft YaHei', serif;
+}
+.qyjbxx tr,td, .qyzcxx tr,td, .qygmxx tr,td{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgba(255,255,255,0.95);
+}
+.short{
+    color: white;
+}
+.long{
+    color: rgb(69,151,212);
+}
+#content-qyxq {
+    overflow-y: auto;
+}
+.qyjbxx{
+    width: 98%;
+    height: 40%;
+    margin: 2% 0 0 2%;
+}
+.qyzcxx{
+    width: 98%;
+    height: 45%;
+    margin: 2% 0 0 2%;
+}
+.qygmxx{
+    width: 98%;
+    height: 40%;
+    margin: 2% 0 2% 2%;
+}
+.left-blue-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 1.233%;
+    width: 0.55%;
+    height: 77.6%;
+    border-radius: 0.104166667vw;
+    font-size: 2.5vw;
+    background: #56B8FF;
+}
+.qyjbxx-title {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    font-size: 26px;
+    font-family: 微软雅黑Regular, sans-serif;
+}
+/********************************************/
+.line-blue-1{
+    margin: 2% 0 0 2%;
+    height: 0.5%;
+    width: 95%;
+    background-color: #66B6EC;
+}
+.qyjbxx-content{
+    width: 100%;
+    height: 83%;
+    margin: 0 2% 0 0;
+}
+.qyjbxx-tab, .qyzcxx-tab,.qygmxx-tab{
+    display: flex;
+    flex-flow: row wrap;
+    width: 97%;
+    height: 100%;
+    font-size: 1vw;
+}
+
+.qyjbxx-tab .short,.qyzcxx-tab .short,.qygmxx-tab .short{
+    width: 11%;
+    text-align: right;
+    padding-top: 2%;
+    padding-right: 2%;
+}
+.qyjbxx-tab .long,.qyzcxx-tab .long,.qygmxx-tab .long{
+    width: 22%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 2% 2% 0 0;
+    border-bottom: 0.0808333vw dotted rgb(16,81,127);
+}
+
+/************************************************************/
+.line-blue-2{
+    margin: 2% 0 0 2%;
+    height: 0.46%;
+    width: 95%;
+    background-color: #66B6EC;
+}
+.qyzcxx-content{
+    width: 100%;
+    height: 83%;
+    margin: 0 2% 0 0;
+}
+.qyzcxx-tab .short{
+    width: 12%;
+    margin-left: -0.7vw;
+}
+
+/*************************************************************/
+.line-blue-3{
+    margin: 2% 0 0 2%;
+    height: 0.5%;
+    width: 95%;
+    background-color: #66B6EC;
+}
+.qygmxx-content{
+    width: 100%;
+    height: 83%;
+    margin: 0 2% 0 -2%;
+}
+.qygmxx-tab{
+    width: 98.2%;
+    height: 100%;
+    font-size: 1vw;
+}
+.qygmxx-tab .short{
+    width: 14.3%;
+    margin-left: -0.9vw;
+}
+.qygmxx-tab .long{
+    width: 19.6%;
+}
+.qygmxx-tab .three {
+    margin-left: 0;
+}
+.qygmxx-tab .four{
+    width: 18%;
+}
+.qygmxx-tab .five{
+    width: 21.8%;
+}
+/*滚动条*/
+::-webkit-scrollbar {
+    width: 0.8vw;
+    height: 3vh;
+}
+/*滑块*/
+::-webkit-scrollbar-thumb {
+    background-color: rgb(67,104,181);
+    border-radius: 2vw;
+}
+/*滑道*/
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3vw rgb(8,48,77);
+    border-radius: 1vw;
+}
+

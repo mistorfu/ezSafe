@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kedacom.ezSafe.common.dao.BQjXtpzDao">
+
+    <!-- Mapper 生成时间: 2015-9-8 13:28:43 -->
+    <!-- 注意：重新生成时会把之前的mapper重命名为: *Mapper.xml.backup -->
+
+    <!-- 默认缓存
+    <cache />
+    -->
+
+    <resultMap id="BaseResultMap" type="com.kedacom.ezSafe.common.domain.BQjXtpz">
+        <id column="XH" property="xh" jdbcType="DECIMAL"/>
+        <result column="BLM" property="blm" jdbcType="VARCHAR"/>
+        <result column="BLZWM" property="blzwm" jdbcType="VARCHAR"/>
+        <result column="PZZ" property="pzz" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Map_Where_Clause">
+        <if test="xh != null and xh != ''">
+            and XH = #{xh}
+        </if>
+        <if test="blm != null and blm != ''">
+            and BLM = #{blm}
+        </if>
+        <if test="blzwm != null and blzwm != ''">
+            and BLZWM = #{blzwm}
+        </if>
+        <if test="pzz != null and pzz != ''">
+            and PZZ = #{pzz}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Where_Clause">
+        <if test="xh != null and xh != ''">
+            and XH = #{item.xh}
+        </if>
+        <if test="blm != null and blm != ''">
+            and BLM = #{item.blm}
+        </if>
+        <if test="blzwm != null and blzwm != ''">
+            and BLZWM = #{item.blzwm}
+        </if>
+        <if test="pzz != null and pzz != ''">
+            and PZZ = #{item.pzz}
+        </if>
+    </sql>
+
+    <sql id="Map_Update_Clause">
+        <if test="blm != null and blm != ''">
+            BLM = #{blm},
+        </if>
+        <if test="blzwm != null and blzwm != ''">
+            BLZWM = #{blzwm},
+        </if>
+        <if test="pzz != null and pzz != ''">
+            PZZ = #{pzz}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Update_Clause">
+        <if test="blm != null and blm != ''">
+            BLM = #{item.blm},
+        </if>
+        <if test="blzwm != null and blzwm != ''">
+            BLZWM = #{item.blzwm},
+        </if>
+        <if test="pzz != null and pzz != ''">
+            PZZ = #{item.pzz}
+        </if>
+    </sql>
+
+    <sql id="Base_Column_List">
+        XH,
+        BLM,
+        BLZWM,
+        PZZ
+    </sql>
+
+    <sql id="Base_Property_List">
+    #{xh},
+    #{blm},
+    #{blzwm},
+    #{pzz}
+    </sql>
+
+    <sql id="Base_Item_Property_List">
+    #{item.xh},
+    #{item.blm},
+    #{item.blzwm},
+    #{item.pzz}
+    </sql>
+
+    <!-- 对应 Dao.insert 方法 -->
+    <insert id="insert" useGeneratedKeys="true" keyColumn="XH" keyProperty="xh"
+            parameterType="com.kedacom.ezSafe.common.domain.BQjXtpz">
+        insert into B_QJ_XTPZ (
+        <include refid="Base_Column_List"/>
+        )
+        values (
+        <include refid="Base_Property_List"/>
+        )
+    </insert>
+
+    <!-- 对应 Dao.insertPatch 方法 -->
+    <insert id="insertPatch" useGeneratedKeys="true" keyProperty="xh" parameterType="java.util.List">
+        insert into B_QJ_XTPZ (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            <include refid="Base_Item_Property_List"/>
+            )
+        </foreach>
+    </insert>
+
+
+    <!-- 对应 Dao.selectByKey 方法 -->
+    <select id="selectByKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from B_QJ_XTPZ
+        where 1 = 1
+        and XH = #{xh}
+    </select>
+
+    <!-- 对应 Dao.selectByExample 方法 -->
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from B_QJ_XTPZ
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null and orderByClause != ''">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <!-- 对应 Dao.selectByMap 方法 -->
+    <select id="selectByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from B_QJ_XTPZ
+        where 1 = 1
+        <include refid="Map_Where_Clause"/>
+        <if test="orderByClause != null and orderByClause != ''">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <!-- 对应 Dao.countByMap 方法 -->
+    <select id="countByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from B_QJ_XTPZ
+        where 1 = 1
+        <include refid="Map_Where_Clause"/>
+    </select>
+
+    <!-- 对应 Dao.countByExample 方法 -->
+    <select id="countByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample"
+            resultType="java.lang.Integer">
+        select count(*) from teedm01
+        <if test="_parameter != null and _parameter != ''">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+
+    <!-- 对应 Dao.updateByKey 方法 -->
+    <update id="updateByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjXtpz">
+        update B_QJ_XTPZ
+        <set>
+            <include refid="Map_Update_Clause"/>
+        </set>
+        where
+        XH = #{xh}
+    </update>
+
+    <!-- 对应 Dao.updatePatchByKey 方法 -->
+    <update id="updatePatchByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjXtpz">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_XTPZ
+            <set>
+                <include refid="Map_Item_Update_Clause"/>
+            </set>
+            where
+            #{item.XH} = #{xh}
+        </foreach>
+    </update>
+
+    <!-- 对应 Dao.updateByMap 方法 -->
+    <select id="updateByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+        update B_QJ_XTPZ
+        <set>
+            <include refid="Map_Update_Clause"/>
+        </set>
+        where 1 = 1
+        <include refid="Map_Where_Clause"/>
+    </select>
+
+    <!-- 对应 Dao.updatePatchByMap 方法 -->
+    <select id="updatePatchByMap" parameterType="java.util.List" resultMap="BaseResultMap">
+
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_XTPZ
+            <set>
+                <include refid="Map_Item_Update_Clause"/>
+            </set>
+            where 1 = 1
+            <include refid="Map_Item_Where_Clause"/>
+        </foreach>
+    </select>
+
+    <!-- 对应 Dao.deleteByKey 方法 -->
+    <delete id="deleteByKey" parameterType="java.lang.Long">
+        delete from B_QJ_XTPZ
+        where 1 = 1
+            and XH = #{xh}
+    </delete>
+
+    <!-- 对应 Dao.deleteByExample 方法 -->
+    <delete id="deleteByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample">
+        delete from B_QJ_XTPZ
+        <if test="_parameter != null and _parameter != ''">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+
+    <!-- 对应 Dao.deleteByMap 方法 -->
+    <delete id="deleteByMap" parameterType="java.util.Map">
+        delete from B_QJ_XTPZ
+        where 1 = 1
+        <include refid="Map_Item_Where_Clause"/>
+    </delete>
+
+    <!-- 对应 Dao.xtpzSearch 方法 -->
+    <select id="xtpzSearch" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from B_QJ_XTPZ
+        where BLM LIKE '%${blm}%' AND BLZWM LIKE '%${blzwm}%'
+        order by XH ASC
+    </select>
+
+    <!-- 对应 Dao.xtpzDeleteByList 方法 -->
+    <delete id="xtpzDeleteByList" parameterType="java.util.List">
+        delete from B_QJ_XTPZ
+        where XH in
+        <foreach collection="list" item="xh" index="index" open="(" close=")" separator=",">
+            #{xh}
+        </foreach>
+    </delete>
+
+    <!-- 对应 Dao.getNextXh 方法 -->
+    <select id="getNextXh" resultType="java.lang.Long">
+            SELECT SEQ_QJ_XH.NEXTVAL FROM dual
+    </select>
+</mapper>

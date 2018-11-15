@@ -1,0 +1,336 @@
+.k-treeview .k-plus {
+    width: 5px;
+    height: 10px;
+    margin-left: -4px;
+    background-image: url("../../icons/common-treelist-collapse.png");
+}
+
+.k-treeview .k-minus {
+    width: 8px;
+    height: 10px;
+    margin-left: -4px;
+    background-image: url("../../icons/common-treelist-expand.png");
+}
+
+.k-treeview .k-top, .k-treeview .k-mid, .k-treeview .k-bot {
+    width: 93%;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 0.5vw;
+    margin-bottom:-0.2vw;
+    height: 2vw;
+    font-size: 0.9375vw;
+    line-height: 2vw;
+    padding-left: 3%;
+    user-select: none;
+}
+
+.k-treeview .k-item span.k-in {
+    border:none;
+    width: 95%;
+    margin:0;
+    padding:0;
+    height:100%;
+    cursor: pointer;
+    color: #fff;
+}
+.k-top:hover,.k-mid:hover,.k-bot:hover{
+    background-image: url("../../images/common-tree-bg-h.png");
+    background-size: 100% 100%;
+}
+
+.k-treeview .tree-selected {
+    background-image: url("../../images/common-tree-bg-h.png");
+    background-size: 100% 100%;
+}
+
+.k-treeview .k-state-selected, .k-treeview .k-state-hover, .k-treeview .k-state-focused {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+}
+
+.fire-tree-button-wrap .fire-tree-button {
+    width: 1vw;
+    height: 1vw;
+    margin-left:0.5vw;
+}
+
+.fire-tree-icon {
+    width: 0.8333333vw;
+    height: 0.8333333vw;
+    margin-left: 0.5vw;
+    margin-right: 0.3vw;
+}
+
+.fire-tree-button-wrap {
+    display: none;
+    margin-left: auto;
+    margin-right: 0.3vw;
+    width: 40%;
+    height: 1vw;
+    justify-content: flex-end;
+}
+
+.fire-tree-row-wrap:hover>.fire-tree-button-wrap{
+    display: flex;
+}
+
+.fire-tree-button-click-wrap {
+    border: 1px solid #63bdff;
+    background: rgba(7, 41, 66, 0.85);
+    box-shadow: 0 0 10px 1px rgba(210, 225, 255, 0.55) inset;
+    display: none;
+    width: 6.25vw;
+    position: fixed;
+    border-top-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    z-index: 20;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.fire-tree-button-click-wrap .fire-tree-button {
+    width: 6.25vw;
+    font-size: 0.9vw;
+    height: 1.7708333333vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #d4edff;
+}
+
+.fire-tree-button-click-wrap .fire-tree-button:hover {
+    color: #ffb317;
+    background: url("../../icons/yjsc-button-bac.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-row-wrap {
+    display: flex;
+    width: 100%;
+    margin-top: 0.1vw;
+    height: 1.8vw;
+    margin-bottom: 0.1vw;
+    align-items: center;
+    justify-content: start;
+}
+
+.fire-tree-row-wrap .fire-tree-title-input {
+    margin-left: 0.5vw;
+    background-color: rgba(25, 71, 117, 0.2);
+    box-shadow: 0 0 10px 1px rgba(79, 166, 229, 0.98) inset;
+    border: 1px solid #66B5ED !important;
+    border-radius: 5px;
+    width: 42%;
+    text-indent: 5px;
+    outline: none;
+    font-family: "Microsoft Yahei";
+    color: white;
+    font-size: 0.9375vw;
+}
+
+.fire-tree-row-wrap .fire-tree-title-div {
+    margin-left: 0.6vw;
+    background: transparent;
+    height: 2vw;
+    border: none;
+    line-height:2vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    outline: none;
+    font-family: "Microsoft Yahei";
+    color: white;
+    font-size: 0.9375vw;
+    display:block;
+}
+
+.k-treeview .fire-tree-selected {
+    background: url("../../images/common-treeview370x42-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-add-button {
+    background: url("../../icons/xtwy-jcpz-xz-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-add-button:hover {
+    background: url("../../icons/xtwy-jcpz-xz-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-delete-button {
+    background: url("../../icons/common-sc20x20-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-delete-button:hover {
+    background: url("../../icons/common-sc20x20-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-up-button {
+    background: url("../../icons/xtwy-jcpz-sy-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-up-button:hover {
+    background: url("../../icons/xtwy-jcpz-sy-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-down-button {
+    background: url("../../icons/xtwy-jcpz-xy-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-wrap .fire-tree-down-button:hover {
+    background: url("../../icons/xtwy-jcpz-xy-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.hide {
+    display: none !important;
+}
+
+.fire-tree-img {
+    margin-left: 0.5vw;
+}
+
+.fire-tree {
+    width: 100%;
+    height: 94.5%;
+}
+
+.fire-tree-search-wrap {
+    box-sizing: border-box;
+    width: 94%;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 0%;
+    height: 4%;
+    background-color: rgba(25, 71, 117, 0.2);
+    box-shadow: 0 0 10px 1px rgba(79, 166, 229, 0.98) inset;
+    border: 1px solid #66B5ED;
+    border-radius: 5px;
+    text-indent: 5px;
+    outline: none;
+    font-family: "Microsoft Yahei";
+    color: white;
+    padding-left: 0.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fire-tree-search {
+    width: 90%;
+    font-family: "Microsoft Yahei";
+    color: white;
+    font-size: 0.9375vw;
+    background-color: rgba(25, 71, 117, 0.2);
+    border: none !important;
+    outline: none !important;
+}
+
+.fire-tree-search-wrap > img {
+    margin-right: 0.4vw;
+}
+
+.search-high .fire-tree-row-wrap {
+    border-radius: 5px;
+    background: rgba(249, 246, 181, 0.43);
+}
+
+.search-high .fire-tree-title-div {
+    color: #ffffff;
+}
+
+.fire-tree-button-click-wrap .fire-tree-add-icon {
+    position: relative;
+    background: url("../../icons/yjsc-add-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-add-button:hover > .fire-tree-add-icon {
+    background: url("../../icons/yjsc-add-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-delete-icon {
+    background: url("../../icons/yjsc-del-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-delete-button:hover > .fire-tree-delete-icon {
+    background: url("../../icons/yjsc-del-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-up-icon {
+    background: url("../../icons/yjsc-up-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-up-button:hover > .fire-tree-up-icon {
+    background: url("../../icons/yjsc-up-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-down-icon {
+    background: url("../../icons/yjsc-down-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fire-tree-button-click-wrap .fire-tree-down-button:hover > .fire-tree-down-icon {
+    background: url("../../icons/yjsc-down-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+/**
+* delete dialog
+**/
+.fire-tree-alert .k-window-title {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    line-height: 40px;
+    font-size: 1vw;
+    color: #FA4
+}
+
+.fire-tree-alert .k-ext-dialog-content {
+    display: flex;
+    justify-content: center;
+}
+
+.fire-tree-alert .k-ext-dialog-content > div:nth-child(2) {
+    margin-left: 0 !important;
+    margin-top: 1vw !important;
+}
+
+.fire-tree-alert .k-ext-dialog-buttons {
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fire-tree-alert .k-ext-dialog-buttons > div {
+    display: flex !important;
+    justify-content: space-between;
+    width: 9vw !important;
+}
+
+.fire-tree-alert .k-button {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-shadow: none !important;
+}

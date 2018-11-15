@@ -1,0 +1,226 @@
+.xxbj-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    font-family: "Microsoft YaHei";
+}
+
+.xxbj-container .xxbj-title-row {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px 7px 0px;
+}
+
+.xxbj-container .xxbj-content-row {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    padding:  5px 0px 5px 0px;
+}
+
+.xxbj-container .xxbj-attachment-row {
+    width: 100%;
+    min-height: 30%;
+    display: flex;
+}
+
+.xxbj-container .xxbj-desc-row {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.xxbj-container .xxbj-title {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: #d4edff;
+    font-size: 0.9375vw;
+    padding-top: 17px;
+}
+
+.xxbj-container .xxbj-input {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.xxbj-container textarea,
+.xxbj-container input {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 1px solid #4fa6e5;
+    color: #d4edff !important;
+    background: transparent;
+    resize: none;
+    font-size: 0.8333333333333333vw;
+    padding-left: 5px;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.28) inset;
+}
+
+.xxbj-container .xxbj-attachment-title {
+    height: 100%;
+    color: #d4edff;
+    font-size: 0.9375vw;
+    padding-top: 20px;
+    text-align: right;
+}
+
+.xxbj-container .must-input:before {
+    content: '*';
+    color: red;
+    left: 0%;
+    position: relative;
+}
+
+.xxbj-container .text-container {
+    width: 99%;
+    height: 93%;
+    padding-right: 1%;
+    overflow-y: auto;
+}
+
+.xxbj-container .button-container {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.xxbj-container .save-button {
+    width: 4.166666666666667vw;
+    height: 1.875vw;
+    margin-right: 1%;
+    background-image: url("../../../icons/common-bc-n.png");
+    background-size: 100%;
+}
+
+.xxbj-container .save-button:hover {
+    background-image: url("../../../icons/common-bc-h.png");
+}
+
+.xxbj-container .cancel-button {
+    width: 4.166666666666667vw;
+    height: 1.875vw;
+    margin-left: 1%;
+    background-image: url("../../../icons/common-qx-n.png");
+    background-size: 100%;
+}
+
+.xxbj-container .cancel-button:hover {
+    background-image: url("../../../icons/common-qx-h.png");
+    background-size: 100%;
+}
+
+.xxbj-container .upload-button {
+    width: 2.083333333333333vw;
+    height: 1.875vw;
+    background-image: url("../../../icons/yjzb-yjsc-xxbj-n.png");
+    cursor: pointer;
+    margin-left: 2.1875vw;
+    margin-top: 5px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.xxbj-container .upload-button:hover {
+    background-image: url("../../../icons/yjzb-yjsc-xxbj-h.png");
+    background-size: 100%;
+}
+
+/*image list*/
+.xxbj-container .list-pic {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+}
+
+.xxbj-container .list-pic-item {
+    float: left;
+    width: 16.66666666666667vw;
+    height: 13.54166666666667vw;
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.xxbj-container .list-pic-item:focus {
+    outline: none;
+}
+
+.xxbj-container .pic-content {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: 99.5%;
+    height: 85%;
+    border-radius: 4px;
+    border: 1px solid #4fa6e5;
+    background: transparent;
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.28) inset;
+}
+
+.xxbj-container .pic-content:hover {
+    border-color: #ffb215;
+}
+
+.xxbj-container .pic-desc {
+    width: 99.4%;
+    height: 11.7%;
+    padding-top: 5px;
+}
+
+.xxbj-container .list-pic-item img {
+    max-width: 97%;
+    max-height: 96%;
+    margin: 5px;
+}
+
+.xxbj-container .pic-desc input {
+    width: 98.5%;
+    height: 90%;
+}
+
+.xxbj-container .pic-remove {
+    width: 1.25vw;
+    height: 1.25vw;
+    background: url("../../../icons/zdab-ablr-shut-n.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+}
+
+.xxbj-container .pic-remove:hover {
+    background-image: url("../../../icons/zdab-ablr-shut-h.png");
+}
+
+/*scrollbar*/
+div::-webkit-scrollbar {
+    width: 0.6vw;
+    height: 0.6vw;
+}
+
+div::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5208333333333333vw;
+}
+
+div::-webkit-scrollbar-corner {
+    background-color: transparent;
+    width: 0;
+    height: 0;
+}

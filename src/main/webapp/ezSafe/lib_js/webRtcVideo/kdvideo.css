@@ -1,0 +1,396 @@
+.kdvideo-window-wrapper {
+     float: left;
+     position: relative;
+}
+
+.kdvideo-window-wrapper .controls {
+    position: absolute;
+    left:0;
+    bottom: 1px;
+    color: #fff;
+    width: 100%;
+    display: none;
+    height: 48px;
+    background: rgba(0,20,31,0.6);
+}
+
+.kdvideo-window-wrapper.selected .controls {
+    display: block;
+}
+.kdvideo-window-wrapper:hover .controls {
+    display: block;
+}
+
+video.kdvideo-window {
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    border: 1px solid #000;
+    background: #333;
+    /*object-fit: fill;*/
+}
+
+.kdvideo-window-wrapper.selected video.kdvideo-window{
+    border: 1px solid #00b0ff;
+}
+video::-webkit-media-controls{
+    display:none !important;
+}
+.controls span {
+    height: 32px;
+    width: 32px;
+    float: left;
+    cursor: pointer;
+    margin: 0 0 0 0;
+    background-image: url(images/control.png);
+}
+.progressBar{
+    position: relative;
+    float: left;
+    height: 100%;
+    line-height: 48px;
+}
+.playPole{
+    height:4px;
+    background-color: #6c6c69;
+    margin: 21px 15px;
+    cursor:pointer;
+}
+.poleOn{
+    width: 0;
+    height:4px;
+    background-color: #0097f8;
+}
+.controls span.playCtrl {
+    position: absolute;
+    top:8px;
+    background-position: -658px -58px;
+}
+.controls span.playCtrl:hover {
+    background-position: -658px -117px;
+}
+.controls span.play {
+    margin: 8px 0 0 10px;
+    background-position: -112px -58px;
+}
+
+.controls span.play:hover {
+    background-position: -112px -117px;
+}
+
+.controls span.play.pause {
+    background-position: -70px -58px;
+}
+
+.controls span.play.pause:hover {
+    background-position: -70px -117px;
+}
+
+.controls span.stop {
+    margin: 8px 0 0 10px;
+    background-position: -910px -58px;
+ }
+
+.controls span.stop:hover {
+    background-position: -910px -117px;
+}
+.controls span.call {
+    margin: 8px 0 0 10px;
+    background-position: -196px -58px;
+}
+
+.controls span.call:hover {
+    background-position: -196px -117px;
+}
+.controls span.call.endCall {
+    margin: 8px 0 0 10px;
+    background-position: -742px -58px;
+}
+
+.controls span.call.endCall:hover {
+    background-position: -742px -117px;
+}
+.controls span.screenShot {
+    margin: 8px 0 0 10px;
+    background-position: -154px -58px;
+}
+
+.controls span.screenShot:hover {
+    background-position: -154px -117px;
+}
+.controls span.playHistory {
+    margin: 8px 0 0 10px;
+    background-position: -784px -58px;
+}
+
+.controls span.playHistory:hover {
+    background-position: -784px -117px;
+}
+.controls span.return {
+    margin: 8px 0 0 10px;
+    background-position: -952px -58px;
+}
+
+.controls span.return:hover {
+    background-position: -952px -117px;
+}
+
+.controls span.resume {
+    margin: 8px 0 0 10px;
+    background-position: -112px -58px;
+}
+
+.controls span.resume:hover {
+    background-position: -112px -117px;
+}
+
+.controls span.resume.pause {
+    background-position: -70px -58px;
+}
+
+.controls span.resume.pause:hover {
+    background-position: -70px -117px;
+}
+.controls span.fast {
+    margin: 8px 0 0 10px;
+    background-position: -826px -58px;
+}
+
+.controls span.fast:hover {
+    background-position: -826px -117px;
+}
+.controls span.slow {
+    margin: 8px 0 0 10px;
+    background-position: -868px -58px;
+}
+
+.controls span.slow:hover {
+    background-position: -868px -117px;
+}
+.controls span.full {
+    background-position: -616px -58px;
+    margin: 8px 10px 0 0;
+}
+
+.controls span.full:hover {
+    background-position: -616px -117px;
+}
+.controls span.endFull {
+    background-position: -406px -58px;
+    margin: 8px 10px 0 0;
+}
+
+.controls span.endFull:hover {
+    background-position: -406px -117px;
+}
+.controls span.voice {
+    background-position: -532px -58px;
+    margin: 8px 10px 0 0;
+}
+
+.controls span.voice:hover {
+    background-position: -532px -117px;
+}
+.leftBtn{
+    float:left
+}
+.rightBtn{
+    position: absolute;
+    right: 5px;
+    top:0;
+}
+.voiceBar{
+    width: 32px;
+    height: auto;
+    position:absolute;
+    bottom: 40px;
+    background: rgba(0,20,31,0.6);
+}
+.voiceVal{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+}
+.controls span.voiceCtrl {
+    position: absolute;
+    bottom: -15px;
+    background-position: -658px -58px;
+}
+.controls span.voiceCtrl:hover {
+    background-position: -658px -117px;
+}
+.pole{
+    width: 3px;
+    height:70px;
+    background:#0097f8;
+    margin-left: 15px;
+    margin-bottom: 3px;
+    border:none;
+    cursor: pointer;
+}
+.poleVoice{
+    width: 3px;
+    height: 100%;
+    background-color: #6c6c69;
+    box-sizing: border-box;
+}
+.rate{
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    left:20px;
+    top:20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 26px;
+    color:#fff;
+    z-index:2147483647;
+    background: #333;
+    border-radius: 4px;
+}
+#window-bg{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+}
+#window-Content{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    width: 474px;
+    height: 262px;
+    background:rgba(14,54,82,0.9);
+    border:1px solid #00b0ff;
+}
+.title{
+    height:60px;
+    width: 100%;
+    font-size: 26px;
+    color: #fff;
+    line-height: 60px;
+    background-image: url("images/title-bg.png");
+    background-size: 100% 100%;
+}
+.title span{
+    margin-left:20px
+}
+.hidden{
+    display: none;
+}
+.invisible{
+    display: none;
+ }
+.close{
+    height: 42px;
+    width: 42px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-image: url(images/close-common.png);
+}
+.close:hover{
+    background-image: url(images/close-choose.png);
+}
+.line{
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 20px 0 0 30px;
+}
+.time{
+    margin: 0 10px 0 0;
+    font-size: 18px;
+    color: #d4edff;
+}
+.line input{
+    height: 40px;
+}
+.confirm{
+    height: 36px;
+    width: 80px;
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-image: url(images/play-normal.png);
+    margin: 30px 20px auto 150px;
+    float: left;
+}
+.confirm:hover{
+    background-image: url(images/play-hover.png);
+}
+.cancel{
+    height: 36px;
+    width: 80px;
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-image: url(images/cancel-normal.png);
+    margin-top: 30px;
+    float: left;
+}
+.cancel:hover{
+    background-image: url(images/cancel-hover.png);
+}
+.line .startTime, .endTime{
+    width: 300px !important;
+}
+.line .k-datetimepicker{
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none;
+}
+.line .k-datetimepicker .k-picker-wrap .k-input{
+    background-image: none !important;
+    background-color: transparent !important;
+    box-shadow: none;
+    height: 100%;
+    padding:0;
+    font-size: 16px;
+    color:#d4edff;
+    text-indent: 10px
+}
+.line .k-datetimepicker .k-picker-wrap{
+    height: 90%;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 1px solid #4fa6e5 !important;
+    text-decoration: none;
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.20) inset;
+    border-radius:4px;
+}
+.line .k-datetimepicker .k-picker-wrap .k-select{
+    height: 100%;
+    border-left: 1px solid #4fa6e5;
+    width: 25%;
+}
+div::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+    border: 1px solid #66b5ed;
+    box-shadow: 0 0 3px 2px rgba(9, 137, 228, 0.88) inset;
+}
+
+.line .k-icon{
+    margin: 7px 4px !important;
+}
+.line .k-i-calendar{
+    background: url("images/common-time-n.png") no-repeat !important;
+    background-size:100% 100%;
+    width: 22px !important;
+    height: 22px !important
+}
+
+.line .k-i-calendar:hover{
+    background: url("images/common-time-h.png") no-repeat !important;
+}
+.line .k-i-clock{
+    background: url("images/common-timepick-n.png") no-repeat !important;
+    background-size:100% 100%;
+    width: 22px !important;
+    height: 22px !important
+}
+
+.line .k-i-clock:hover{
+    background: url("images/common-timepick-h.png") no-repeat !important;
+}

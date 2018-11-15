@@ -1,0 +1,38 @@
+.k-treeview .k-plus {
+    width: 5px;
+    height: 10px;
+    margin-left: -4px;
+    background-image: url("../../icons/common-treelist-collapse.png");
+}
+
+.k-treeview .k-minus {
+    width: 8px;
+    height: 10px;
+    margin-left: -4px;
+    background-image: url("../../icons/common-treelist-expand.png");
+}
+
+.k-treeview .k-top,.k-treeview .k-mid,.k-treeview .k-bot {
+    width: 93%;
+    height: 42px;
+    font-size: 0.9375vw;
+    line-height: 2vw;
+    padding-left: 3%;
+    user-select: none;
+}
+
+.k-treeview .k-item span.k-in {
+    cursor: pointer;
+    color: #fff;
+}
+
+.k-treeview .tree-selected {
+    background-image: url("../../images/common-tree-bg-h.png");
+    background-size: 100% 100%;
+}
+
+.k-treeview .k-state-selected,.k-treeview .k-state-hover,.k-treeview .k-state-focused {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+}

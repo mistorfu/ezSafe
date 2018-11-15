@@ -1,0 +1,99 @@
+group 'com.kedacom'
+version 'v1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+ext.time = new Date().format('yyyyMMddHHmmss')
+ext.versionNumber = version + "." + time + ".Alpha"
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+            srcDir 'src/main/java'
+            exclude 'src/main/java/**/*.java'
+        }
+        output.resourcesDir = "${buildDir}/classes/main"
+    }
+}
+
+processResources {
+    from('src/main/resources') {
+        include '**/*'
+        exclude 'application.properties'
+    }
+    from('src/production') {
+        include 'application.properties'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:4.3.9.RELEASE'
+    compile 'org.springframework:spring-context-support:4.3.9.RELEASE'
+    compile 'org.springframework:spring-jdbc:4.3.9.RELEASE'
+    compile 'org.elasticsearch:elasticsearch:5.6.0'
+    compile 'org.elasticsearch.client:transport:5.6.0'
+    compile 'org.elasticsearch.client:elasticsearch-rest-high-level-client:5.6.0'
+    compile 'org.mybatis:mybatis:3.4.0'
+    compile 'org.mybatis:mybatis-spring:1.3.0'
+    compile 'redis.clients:jedis:2.9.0'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+    compile 'org.freemarker:freemarker:2.3.23'
+    compile 'org.jsoup:jsoup:1.11.3'
+    compile 'org.slf4j:slf4j-api:1.7.6'
+    compile 'ch.qos.logback:logback-core:1.1.2'
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile fileTree(dir: "lib/others", include: "*.jar")
+    compile fileTree(dir: "lib/kedacom", include: "*.jar")
+}
+
+war {
+    archiveName 'ezSafe.war'
+    duplicatesStrategy DuplicatesStrategy.EXCLUDE
+    doFirst {
+        manifest {
+            attributes("Implementation-Title": project.name)
+            attributes("Implementation-Version": versionNumber)
+            attributes("Implementation-Timestamp": time)
+        }
+    }
+}
+
+task buildClassToWebInfo(dependsOn: build, type: Copy) {
+    copy {
+        from 'build/classes/main'
+        into './src/main/webapp/WEB-INF/classes'
+        include '**/*.*'
+    }
+
+    copy {
+        into './src/main/webapp/WEB-INF/lib'
+        include '*.jar'
+    }
+
+    copy {
+        from '../lib/kedacom'
+        into './src/main/webapp/WEB-INF/lib'
+        include '*.jar'
+    }
+
+    copy {
+        from '../lib/others'
+        into './src/main/webapp/WEB-INF/lib'
+        include '*.jar'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

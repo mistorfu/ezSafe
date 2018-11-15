@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="kdvideo.css">
+    <link rel="stylesheet" href="../kendoui/styles/kendo.common.css">
+    <link rel="stylesheet" href="../kendoui/styles/kendo.blueopal.css">
+    <style type="text/css">
+        div#main{width: 100%; height: 600px;}
+    </style>
+    <script src="../jquery.js"></script>
+    <script src="../require.js"></script>
+
+</head>
+<body>
+<script>
+    require(['kdvideo'], function () {
+        $(document).ready(function() {
+            var video = $("#main").kdvideo({wsurl: "wss://172.16.233.180:8081", windowNum: 8 });
+            video.windows[0].realPlay("31010100001320000007");
+//            video.windows[1].realPlay("31010100001320000007");
+//            video.endPlay();
+//            video.fillWrapper();
+        });
+    })
+</script>
+<div id="main">
+</div>
+</body>
+</html>

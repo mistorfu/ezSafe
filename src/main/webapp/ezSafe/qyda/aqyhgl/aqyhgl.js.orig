@@ -1,0 +1,525 @@
+require([CONTEXT_PATH + '/ezSafe/lib_js/avatarConfig.js'], function () {
+    require(['jquery'], function () {
+        require(['lib/domReady!aqyhgl', 'ezviewCommon','comRegionTree'], function (dom, common,comRegionTree) {
+            require([CONTEXT_PATH + '/ezSafe/qyda/aqyhgl/aqyhglEdit.js',
+                    CONTEXT_PATH + '/ezSafe/qyda/aqyhgl/aqyhglDetail.js'], function (aqyhglEdit, aqyhglDetail) {
+                var page = {
+                    user: {},
+                    params: {
+                        XZNBBM: "",
+                        onlySelf: 0,
+                        columnName: [],
+                        textName: [],
+                        QYMC: "",
+                        YHLX: "",
+                        YHJB: "",
+                        YHLY: ""
+                    },
+
+                    excelText: {
+                        "信息编号": "XXBH",
+                        "任务编号": "RWBH",
+                        "企业信息": "QYXX",
+                        "隐患编号": "YHBH",
+                        "隐患名称": "YHMC",
+                        "隐患类型": "YHLX",
+                        "隐患级别": "YHJB",
+                        "隐患来源": "YHLY",
+                        "隐患位置": "YHWZ",
+                        "隐患部位": "YHBW",
+                        "隐患内容": "YHNR",
+                        "检查人员": "JCRY",
+                        "检查时间": "JCSJ",
+                        "检查附件": "JCFJ",
+                        "整改期限": "ZGQX",
+                        "责任部门": "ZRBM",
+                        "责任人员": "ZRRY",
+                        "联系电话": "LXDH",
+                        "整改记录": "ZGJL",
+                        "整改结果": "ZGJG",
+                        "备注信息": "BZXX",
+                        "所属街镇": "SSJZ",
+                        "所属辖区": "SSXQ"
+                    },
+
+                    init: function () {
+                        var self = this;
+                        var usercode = jQuery.getUrlParams().username || "admin";
+                        self.readOnly = $.getUrlParams().isReadOnly || "false";
+                        if (self.readOnly != "true") {
+                            $(".readOnly").show();
+                            $(".whp1").css("display","flex")
+                        }
+                        for (var x in self.excelText) {
+                            self.params.columnName.push(x);
+                            self.params.textName.push(self.excelText[x]);
+                        }
+                        $.ajax({
+                            url: CONTEXT_PATH + "/common-api/getUserInfo?random=" + Math.random(),
+                            type: "POST",
+                            data: {userCode: usercode},
+                            dataType: "json",
+                            success: function (data) {
+                                self.user = data;
+                                self.params.XZNBBM = data.XZQHNBBM;
+                                kendo.culture("zh-CN");
+                                self.getTreeview(data);
+                                self.bindEvent();
+                                self.getAqyh("", false);
+                                // aqyhglEdit.xzqhSelect.init(data.XZBM, data.XZNBBM);
+                                // aqyhglEdit.xfdwSelect.init(data.DWBH, data.DWNBBM);
+                            }
+                        });
+                    },
+                    bindEvent: function () {
+                        var self = this;
+                        //隐患类型下拉框
+                        $(".search-YHLX").kendoDropDownZdx({
+                            zdlx:"20026",
+                            level:"0",
+                            change: function (e) {
+                                $("#search-YHLX input").attr("value", e.id);
+                            }
+                        });
+
+                        //隐患级别下拉框
+                        $(".search-YHJB").kendoDropDownZdx({
+                            zdlx:"20027",
+                            level:"0",
+                            change: function (e) {
+                                $("#search-YHJB input").attr("value", e.id);
+                            }
+                        });
+                        //隐患来源下拉框
+                        $(".search-YHLY").kendoDropDownZdx({
+                            zdlx:"20029",
+                            level:"0",
+                            change: function (e) {
+                                $("#search-YHLY input").attr("value", e.id);
+                            }
+                        });
+
+                        //查询
+                        $("#whp-search").click(function () {
+                            self.getAqyh("", false);
+                        });
+
+                        $(".search-condition").on("keypress", ".whp-input-style", function (e) {
+                            if (e.keyCode == "13") {
+                                self.getAqyh("", false);
+                            }
+                        });
+
+                        //重置
+                        $("#whp-reset").click(function () {
+                            $("input[name='QYMC']").val("");
+                            $("#search-YHLX input").val("");
+                            $("#search-YHLX input").attr("value", "");
+                            $("#search-YHJB input").val("");
+                            $("#search-YHJB input").attr("value", "");
+                            $("#search-YHLY input").val("");
+                            $("#search-YHLY input").attr("value", "");
+                            $("#onlySelf").removeClass("xfry-checkbox-tick");
+                            self.params.onlySelf = 0;
+                            self.getAqyh();
+                        });
+
+                        //导出数据
+                        $("#aqyh-dc").click(function () {
+                            if ($(".whp-row").length == 0) {
+                                kendo.ui.ExtMessageDialog.show({messageType: "warn", message: "至少导出一条数据！"});
+                                return;
+                            }
+                            $.when(kendo.ui.ExtConfirmDialog.show({
+                                title: "提示!",
+                                message: "确定要导出吗？"
+                            })).done(function (result) {
+                                if (result.button == 'OK') {
+                                    $("#export-wait").data("kendoWindow").center().open();
+                                    self._export();
+                                    self.progressInterval = setInterval(function () {
+                                        self.exportProgress()
+                                    }, 100);
+                                }
+                            });
+                        });
+
+                        $("#export-wait").kendoWindow({
+                            scrollable: false,
+                            width: "17%",
+                            height: "14%",
+                            visible: false,
+                            title: false,
+                            modal: true,
+                            resizable: false
+                        }).data("kendoWindow");
+
+                        $(".export-wait-cancel").click(function () {
+                            self.exportCancel();
+                            self._closeProgressWindow();
+                        });
+
+                        //选中所有
+                        $("#allCheck").click(function () {
+                            if ($(this).hasClass("xfry-checkbox-tick")) {
+                                $(".single-check").removeClass("xfry-checkbox-tick")
+                            } else {
+                                $(".single-check").addClass("xfry-checkbox-tick")
+                            }
+                            $(this).toggleClass("xfry-checkbox-tick");
+                        });
+
+                        //批量删除
+                        $("#aqyh-plsc").click(function () {
+                            var ids = [];
+                            if ($(".xfry-checkbox-tick.single-check").length > 0) {
+                                $(".xfry-checkbox-tick.single-check").each(function () {
+                                    var dataItem = $("#miniFire-list").data("kendoListView").dataItem($(this));
+                                    if (dataItem && dataItem.XXBH) {
+                                        ids.push(dataItem.XXBH);
+                                    }
+                                });
+                                self.DeleteAqyh(ids);
+                            } else {
+                                kendo.ui.ExtMessageDialog.show({messageType: "warn", message: "至少选择一条数据！"});
+                            }
+                        });
+
+                        //单选
+                        $(".whp-list").on("click", ".single-check", function () {
+                            $(this).toggleClass("xfry-checkbox-tick");
+                            var sum = $(".single-check").length;
+                            var checkedNum = $(".xfry-checkbox-tick").length;
+                            var onlySelf = $("#onlySelf").hasClass("xfry-checkbox-tick") ? 1 : 0;
+                            var allCheck = $("#allCheck").hasClass("xfry-checkbox-tick") ? 1 : 0;
+
+                            if(checkedNum - onlySelf - allCheck == sum){
+                                $("#allCheck").addClass("xfry-checkbox-tick");
+                            } else {
+                                $("#allCheck").removeClass("xfry-checkbox-tick");
+                            }
+                        });
+
+                        //仅显示本级
+                        $("#onlySelf").click(function () {
+                            if ($(this).hasClass("xfry-checkbox-tick")) {
+                                self.params.onlySelf = 0;
+                            } else {
+                                self.params.onlySelf = 1;
+                            }
+                            $(this).toggleClass("xfry-checkbox-tick");
+                            self.getAqyh("", false);
+                        });
+
+                        //新增安全隐患
+                        $("#addButton").click(function () {
+                            $("#xgxz-miniFire").html("新增安全隐患");//设置弹窗标题
+                            aqyhglEdit.miniFireEdit(new self.newMiniFire(self));
+                        });
+                        //修改安全隐患
+                        $("#updateButton").click(function () {
+                            if (self.dataItem) {
+                                $("#xgxz-miniFire").html("修改安全隐患");
+                                aqyhglEdit.miniFireEdit(self.dataItem);
+                            } else {
+                                kendo.ui.ExtMessageDialog.show({messageType: "warn", message: "至少选择一条数据！"});
+                            }
+                        });
+                    },
+
+                    /**获取组织结构数据**/
+                    getTreeview: function (params) {
+                        var self = this;
+                        $("#left-treeview").comRegionTree({
+                            xzbm: params.XZBM,
+                            xznbbm: params.XZNBBM,
+                            click: function(data) {
+                                self.params.XZNBBM = data.XZQHNBBM;
+                                self.getAqyh("",false);
+                            }
+                        });
+                    },
+
+                    /**获取安全隐患**/
+                    getAqyh: function (id, flag) {
+                        var self = this;
+                        self.flag = flag;
+                        self.params.QYMC = $("input[name='QYMC']").val();//企业名称
+                        self.params.YHLX = $("#search-YHLX input").attr("value") || "";//隐患类型
+                        self.params.YHJB = $("#search-YHJB input").attr("value") || "";//隐患级别
+                        self.params.YHLY = $("#search-YHLY input").attr("value") || "";//隐患来源
+
+                        if (self.dataSource && flag) {
+                            self.dataSource.fetch(function () {
+                                var data = this.data();
+                                var index = 0;
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].XXBH == id) {
+                                        index = i;
+                                        break;
+                                    }
+                                }
+                                listView.select($(".whp-row:eq(" + index + ")"));
+                            });
+                        } else {
+                            self.dataSource = new kendo.data.DataSource({
+                                transport: {
+                                    read: {
+                                        url: CONTEXT_PATH + "/api/qyda/aqyhgl/getAqyh",
+                                        dataType: "json",
+                                        data: self.params,
+                                        type: "POST",
+                                        cache: true,
+                                        success: function (result) {
+                                        }
+                                    }
+                                },
+                                schema: {
+                                    data: function (result) {
+                                        return result.data;
+                                    },
+                                    total: function (result) {
+                                        return result.total;
+                                    }
+                                },
+                                serverPaging: true,
+                                pageSize: 14
+                            });
+                        }
+                        var listView = $("#miniFire-list").data("kendoListView");
+                        if (!listView) {
+                            listView = $("#miniFire-list").kendoListView({
+                                selectable: "single",
+                                dataSource: self.dataSource,
+                                template: kendo.template($("#miniFire-list-temp").html()),
+                                change: function (e) {
+                                    var dataItem = listView.dataItem(this.select());
+                                    self.dataItem = dataItem;
+                                    aqyhglDetail.MiniFireMore(dataItem);//展示右侧信息
+                                    window.pointMapLocation(dataItem.JD, dataItem.WD);
+                                },
+                                dataBound: function (e) {
+                                    $("#allCheck").removeClass("xfry-checkbox-tick");//选中所有
+                                    if (self.readOnly == "true") {
+                                        $(".readOnly").hide();
+                                    } else {
+                                        $(".readOnly").show();
+                                        $(".whp1").css("display","flex")
+                                    }
+                                    if (!self.flag) {
+                                        listView.select(listView.element.children().first());
+                                    }
+                                    if (listView.element.children().first().length == 0) {
+                                        self.emptyWindow();
+                                    }
+                                    $(".deleteButton").click(function (e) {
+                                        var dataItem = listView.dataItem(e.currentTarget);
+                                        self.DeleteAqyh([dataItem.XXBH]);
+                                    })
+                                }
+                            }).data("kendoListView");
+                        } else {
+                            if (!flag) {
+                                listView.setDataSource(self.dataSource);
+                            }
+                        }
+                        $("#pager").kendoPager({
+                            dataSource: self.dataSource
+                        }).data("kendoPager").destroy();
+
+                        $("#pager").kendoPager({
+                            dataSource: self.dataSource,
+                            buttonCount: 3
+                        }).data("kendoPager");
+
+                    },
+
+                    /**删除安全隐患**/
+                    DeleteAqyh: function (ids) {
+                        var self = this;
+                        $.when(kendo.ui.ExtConfirmDialog.show({
+                            title: "提示!",
+                            message: ids.length > 1 ? "确定要批量删除吗？" : "确定要删除吗",
+                            icon: 'question'
+                        })).done(function (result) {
+                            if (result.button == 'OK') {
+                                $.ajax({
+                                    url: CONTEXT_PATH + "/api/qyda/aqyhgl/delete",
+                                    cache: false,
+                                    dataType: "json",
+                                    type: "POST",
+                                    data: {ids: JSON.stringify(ids)},
+                                    traditional: true,
+                                    success: function (data) {
+                                        if (data) {
+                                            kendo.ui.ExtMessageDialog.show({
+                                                messageType: "info",
+                                                message: ids.length > 1 ? "批量删除成功" : "删除成功",
+                                                autoDisappearTime: 500,
+                                                success: function () {
+                                                    self.dataSource.fetch(function () {
+                                                        var listView = $("#miniFire-list").data("kendoListView");
+                                                        if (listView.element.children().first().length == 0) {
+                                                            self.emptyWindow();
+                                                        } else {
+                                                            listView.select($(".whp-row:eq(0)"));
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    },
+                                    error: function (result) {
+                                        kendo.ui.ExtMessageDialog.show({
+                                            messageType: "error",
+                                            message: "删除失败",
+                                            autoDisappearTime: 500
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    },
+
+                    /**导出过程**/
+                    exportProgress: function () {
+                        var self = this;
+                        $.ajax({
+                            url: CONTEXT_PATH + "/api/qyda/aqyhgl/progress?random=" + Math.random(),
+                            type: "GET",
+                            data: {exportId: self.params.exportId},
+                            success: function (data) {
+                                if (data.length < 4) {
+                                    $(".progress").animate({width: data + "%"}, 80);
+                                    $(".percent-number").text(Math.ceil(data) + "%");
+                                } else {
+                                    clearInterval(self.progressInterval);
+                                    if (data != "stop" && data != "failed") {
+                                        var url = CONTEXT_PATH + "/" + data;
+                                        $("#export-download").attr("href", url);
+                                        document.getElementById("export-download").click();
+                                    }
+                                    self._closeProgressWindow();
+                                }
+                            }
+                        });
+
+                    },
+
+                    /**导出数据**/
+                    _export: function () {
+                        var self = this;
+                        self.params.exportId = $.getUuid();
+                        $.ajax({
+                            url: CONTEXT_PATH + "/api/qyda/aqyhgl/exportExcel",
+                            type: "POST",
+                            data: self.params,
+                            traditional: true,
+                            success: function (data) {
+                            },
+                            error: function (data) {
+                                console.log(false);
+                            }
+                        });
+                    },
+
+                    _closeProgressWindow: function () {
+                        $("#export-wait").data("kendoWindow").close();
+                        $(".progress").css({width: "0%"});
+                        $(".percent-number").text("0%");
+                    },
+
+                    /**
+                     * 导出中止
+                     */
+                    exportCancel: function () {
+                        var self = this;
+                        $.ajax({
+                            url: CONTEXT_PATH + "/api/qyda/aqyhgl/stopExport?random=" + Math.random(),
+                            type: "GET",
+                            data: {exportId: self.params.exportId},
+                            traditional: true,
+                            success: function (data) {
+                            }
+                        });
+
+                    },
+                    emptyWindow: function () {
+                        var self = this;
+                        //var empty = new aqyhglEdit.newMiniFire(self);
+                        // self.dataItem = null;
+                        // empty.SSJZ = {
+                        //     JZBH: "",
+                        //     JZMC: "",
+                        //     JZNBBM: ""
+                        // };
+                        // empty.SSXQ = {
+                        //     XZQHBH: "",
+                        //     XZQHMC: "",
+                        //     XZQHSX: "",
+                        //     XZQHJC: "",
+                        //     XZQHNBBM: ""
+                        // };
+                        //self.MiniFireMore(empty);
+                    },
+                    newMiniFire: function (self) {
+                        this.XXBH = $.getUuid();
+                        this.RWBH = "";
+                        this.QYXX = {
+                            QYBH: "",
+                            QYMC:""
+                        };
+                        this.YHBH = "";
+                        this.YHMC = "";
+                        this.YHLX = {
+                            ID: "",
+                            VALUE: "",
+                            CHAIN: ""
+                        };
+                        this.YHJB = {
+                            ID: "",
+                            VALUE: ""
+                        };
+                        this.YHLY = {
+                            ID: "",
+                            VALUE: ""
+                        };
+                        this.YHWZ = "";
+                        this.YHBW = "";
+                        this.YHNR = "";
+                        this.JCRY = {
+                            RYBH: "",
+                            RYXM: ""
+                        };
+                        this.JCSJ = "";
+                        this.JCFJ = [];
+                        this.ZGQX = "";
+                        this.ZRBM = "";
+                        this.ZRRY = "";
+                        this.LXDH = "";
+                        this.ZGJL = [];
+                        this.ZGJG = {
+                            ID: "",
+                            VALUE: ""
+                        };
+                        this.BZXX = "";
+                        this.SSJZ = {
+                            JZBH: "",
+                            JZMC: "",
+                            JZNBBM: ""
+                        };
+                        this.SSXQ = {
+                            XZQHBH: "",
+                            XZQHMC: "",
+                            XZQHSX: "",
+                            XZQHJC: "",
+                            XZQHNBBM: ""
+                        };
+                        this.JLZT = "1";
+                    }
+                };
+                page.init();
+            });
+        });
+    });
+});

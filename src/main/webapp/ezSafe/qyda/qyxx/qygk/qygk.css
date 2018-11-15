@@ -1,0 +1,125 @@
+.left-title {
+    display: flex;
+    align-items: center;
+    height: 7.131%;
+    border: 0.05208333vw #4FA6E5 solid;
+    border-width: 0.05208333vw 0.05208333vw 0.05208333vw 0;
+    font-size: 1.25vw;
+    font-weight: bold;
+    background: #154465;
+}
+
+.left-special-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 1.61%;
+    height: 47.6%;
+    border-radius: 0.104166667vw;
+    font-size: 2.5vw;
+    background: #56B8FF;
+}
+
+#qygk-container {
+    position: relative;
+    padding: 2vh;
+}
+
+.single-line-wrapper {
+    height: 5vh;
+    font-size: 1.1vw;
+}
+
+.single-line-wrapper .label {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    text-align: right;
+    padding: 1vh 0 0 0;
+}
+
+.single-line-wrapper .line-content {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    margin-left: 2%;
+    width: 73%;
+    height: 100%;
+    border-bottom: 0.1vw dotted #204A70;
+    padding: 1vh 0 0 0.5vh;
+    color: #4fa6e5;
+}
+
+.phone-icon {
+    display: inline-block;
+    width: 2vh;
+    height: 2vh;
+    background: url("../../../icons/common-phone-icon.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#qygk-multi-images {
+    height: 42vh;
+    width: 100%;
+    border: 0.05208333vw #4FA6E5 solid;
+    margin-top: 2vh;
+    overflow: hidden;
+}
+
+.image-switch {
+    position:absolute;
+    width: 1.702127659574468vw;
+    height: 10vh;
+    bottom: 18vh;
+    z-index: 2;
+    cursor: pointer;
+    display: none;
+}
+
+#btn-prev{
+    left: 2vh;
+    background:url("../../../icons/abbs-slide-left-normal.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#btn-prev:hover {
+    background-image: url("../../../icons/abbs-slide-left-hover.png");
+}
+
+#btn-next{
+    right: 2vh;
+    background:url("../../../icons/abbs-slide-right-normal.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#btn-next:hover{
+    background-image:url("../../../icons/abbs-slide-right-hover.png");
+}
+
+#qygk-multi-images ul {
+    height: 100%;
+    margin: 0;
+    padding: 1px 0;
+}
+
+#qygk-multi-images ul li {
+    list-style: none;
+    position: relative;
+    float: left;
+    height: 100%;
+}
+
+#qygk-multi-images ul li img {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#qygk-multi-images .index {
+    position: absolute;
+    right: 3vh;
+    bottom: 2vh;
+}

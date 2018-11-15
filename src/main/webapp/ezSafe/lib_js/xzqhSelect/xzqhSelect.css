@@ -1,0 +1,167 @@
+.xzqhSelect-main-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.xzqhSelect-input-row{
+    position: absolute;
+    height: 3.730569948186528vh;
+    width: 100%;
+    top: 0.6vh;
+    display: flex;
+    align-items: center;
+
+}
+.xzqhSelect-input{
+    float: left;
+    width: 74.3%;
+    height: 100%;
+    margin-left: 2%;
+    padding-left: 10px;
+    border-radius: 5px;
+    flex: 1;
+}
+.xzqhSelect-input[type=text]{
+    box-shadow: 0 0 15px 2px rgba(82, 114, 191, 0.64) inset;
+    border: 1px solid #4fa6e5;
+    color: #fff;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+}
+
+.xzqhSelect-button{
+    float: left;
+    height: 36px;
+    width: 40px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.bigButton{
+    width: 80px;
+}
+.xzqhSelect-search-button{
+    background-image: url(../../icons/common-search-small-n.png);
+}
+.xzqhSelect-search-button:hover{
+    background-image: url(../../icons/common-search-small-h.png);
+}
+.xzqhSelect-reset-button{
+    background-image: url(../../icons/common-reset-n.png);
+}
+.xzqhSelect-reset-button:hover{
+    background-image: url(../../icons/common-reset-h.png);
+}
+.xzqhSelect-verify-button{
+    background-image: url(../../icons/common-save-n.png);
+}
+.xzqhSelect-verify-button:hover{
+    background-image: url(../../icons/common-save-h.png);
+}
+
+.xzqhSelect-down-row{
+    height: calc(100% - 4.930569948186528vh);
+    width: 100%;
+    overflow: hidden;
+    padding-top: 4.930569948186528vh;
+    box-sizing: content-box;
+}
+.xzqhSelect-treeview-container{
+    width: 100%;
+    height: 100%;
+    padding-top: 1vh;
+    background-color: rgba(0,0,0,0.15)!important;
+    border: 1px solid #4fa6e5;
+    border-width: 1px!important;
+
+    scrollbar-arrow-color: #6AC1FF;
+    scrollbar-face-color: #11496F;
+    scrollbar-track-color: #11496F;
+    scrollbar-shadow-color: #65B5ED;
+    scrollbar-highlight-color: #65B5ED;
+    scrollbar-3dlight-color: #11496F;
+    scrollbar-darkshadow-color: #11496F;
+}
+
+
+.xzqhSelect-main-container .k-treeview .k-plus {
+    background-repeat : no-repeat;
+    background-image: url("../../icons/common-treeview-collapse.png");
+}
+
+.xzqhSelect-main-container .k-treeview .k-minus {
+    background-repeat : no-repeat;
+    background-image: url("../../icons/common-treeview-expand.png");
+}
+
+.xzqhSelect-main-container .k-in {
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 500;
+    cursor: pointer !important;
+}
+
+.xzqhSelect-main-container .tree-selected {
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}
+
+.xzqhSelect-main-container .k-treeview .k-state-selected,.xzqhSelect-main-container .k-treeview .k-state-hover,.xzqhSelect-main-container .k-treeview .k-state-focused {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    border: none;
+}
+
+.xzqhSelect-main-container .k-top,.xzqhSelect-main-container .k-mid,.xzqhSelect-main-container .k-bot {
+    width: 345px;
+    height: 42px;
+    line-height: 36px;
+    padding-left: 25px;
+    user-select: none;
+    cursor: pointer;
+}
+.xzqhSelect-main-container .k-state-hover, .xzqhSelect-main-container .k-state-selected{
+    border:none;
+}
+
+/**
+list view
+*/
+.xzqhListView{
+    margin-left: 1%;
+    width: 91%;
+    height: 42px;
+    line-height: 36px;
+    padding-left: 25px;
+    user-select: none;
+    cursor: pointer;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 500;
+    cursor: pointer !important;
+}
+.xzqhList-select{
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}
+
+.xzqh-window {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(39, 91, 140, 0.95);
+    border: 1px solid #66b5ed;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.43);
+    padding:0 !important;
+}
+
+.xzqh-window-container{
+    width:100%;
+    height:94%;
+}

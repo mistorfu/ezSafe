@@ -1,0 +1,95 @@
+textarea {
+    font-family: "Microsoft YaHei";
+}
+#detail-container {
+    flex: 1 1;
+    overflow-y: auto;
+    margin-bottom: 1vh;
+    margin-top: 1.8vh;
+}
+.content-container {
+    display: none;
+    flex-flow: row wrap;
+    margin: 0 1vw 0 0.3vw;
+    color: #d4edff;
+    font-size: 0.9375vw;
+}
+.content-container.selected {
+    display: flex;
+}
+
+.content-container label {
+    flex: 0 0 7em;
+    padding: 0.3em 0.5em 0 0;
+    text-align: right;
+}
+
+.content-container label.width-9em {
+    flex: 0 0 9.5em;
+}
+
+.content-container .placeholder {
+    visibility: hidden;
+}
+
+.content-container input, .content-container textarea {
+    flex: 1;
+    margin-bottom: 1vh;
+    box-shadow: 0 0 10px 1px rgba(79, 166, 229, 0.98) inset;
+    border: 1px solid #4fa6e5;
+    border-radius: 5px;
+    text-indent: 5px;
+    font-size: 0.9375vw;
+    color: #ffffff;
+    background-color: rgba(25, 71, 117, 0.2);
+}
+
+.content-container input {
+    height: 4vh;
+    width: 10vw;
+}
+
+.content-container textarea:disabled {
+    height: 10vh;
+    color: rgba(255, 255, 255, 0.5);
+    resize: none;
+}
+
+.content-container .long-input {
+    flex-basis: 70%;
+}
+
+.content-container .short-input {
+    min-width: 100px;
+}
+
+.content-container input:disabled {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#fjxx-list, #jhxcnr-list , #sjxcnr-list ,#yhxx-list{
+    position: relative;
+    flex-grow: 1;
+    height: 30vh;
+    box-shadow: 0 0 10px 1px rgba(79, 166, 229, 0.98) inset;
+    border: 1px solid #4fa6e5;
+    border-radius: 5px;
+    background-color: rgba(25, 71, 117, 0.2);
+    overflow: hidden;
+    margin-bottom: 1vh;
+    padding: 0 0.6vh 0 0.6vh;
+}
+
+#jhxcnr-list td:first-child,#sjxcnr-list td:first-child,#yhxx-list td:first-child,#fjxx-list td:first-child{
+    color: rgba(79,166,299,0.980392);
+}
+#jhxcnr-list td,#sjxcnr-list td,#yhxx-list td,#fjxx-list td{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#jhxcnr-list .k-grid-header,#sjxcnr-list .k-grid-header,#fjxx-list .k-grid-header,#yhxx-list .k-grid-header{
+    height: 4.5vh;
+}
+#jhxcnr-list .k-header,#sjxcnr-list .k-header,#fjxx-list .k-header,#yhxx-list .k-header{
+    padding: 0 .6em 0 .6em;
+}

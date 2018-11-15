@@ -1,0 +1,156 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: "Microsoft YaHei";
+    color: #fff;
+    border: 0;
+}
+
+body {
+    background: url("../../images/EzFireExt-background.png") no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+/* 标题块
+ ============================================================================ */
+.main-title {
+    z-index: 100;
+    margin-left: 1%;
+    margin-top: 2.6vh;
+    width: 41.3%;
+    height: 6.7%;
+}
+
+.title-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: 25%;
+    height: 100%;
+    font-size: 1.354666667vw;
+    background: url("../../icons/czdx-title-sub.png") no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.title-sub.selected, .title-sub:hover {
+    color: #ffb317;
+    background: url("../../icons/czdx-title-sub-choose.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.title-sub:before {
+    content: "";
+    height: 1.8vw;
+    width: 1.8vw;
+    margin-right: 0.5vw;
+    background: url("../../icons/qyda-tab-qyxx-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#subtitle-qyxx:before {
+    background-image: url("../../icons/qyda-tab-qyxx-n.png");
+}
+#subtitle-qyxx.selected:before, #subtitle-qyxx:hover:before {
+    background-image: url("../../icons/qyda-tab-qyxx-h.png");
+}
+
+#subtitle-aqsg:before {
+    background-image: url("../../icons/qyda-tab-aqsg-n.png");
+}
+#subtitle-aqsg.selected:before, #subtitle-aqsg:hover:before {
+    background-image: url("../../icons/qyda-tab-aqsg-h.png");
+}
+
+#subtitle-aqyh:before {
+    background-image: url("../../icons/qyda-tab-aqyh-n.png");
+}
+#subtitle-aqyh.selected:before, #subtitle-aqyh:hover:before {
+    background-image: url("../../icons/qyda-tab-aqyh-h.png");
+}
+
+#subtitle-yjya:before {
+    background-image: url("../../icons/qyda-tab-yjya-n.png");
+}
+#subtitle-yjya.selected:before, #subtitle-yjya:hover:before {
+    background-image: url("../../icons/qyda-tab-yjya-h.png");
+}
+
+/* 容器块
+ ============================================================================ */
+.main-container {
+    position: relative;
+    display: none;
+    margin-left: 1%;
+    height: 89.2%;
+    width: 97.917%;
+    background: url("../../images/czdx-background.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.main-container.selected {
+    display: block;
+}
+
+.left-container {
+    float: left;
+    height: 95%;
+    width: 27%;
+    margin-top: 2vh;
+    margin-left: 1%;
+    border: 0.05208333vw #4FA6E5 solid;
+    background: rgba(255, 255, 255, 0);
+}
+
+.right-container {
+    float: left;
+    height: 95%;
+    width: 70%;
+    border: 0.05208333vw #4FA6E5 solid;
+    margin-left: 1%;
+    margin-top: 2vh;
+    background: rgba(255, 255, 255, 0);
+}
+
+.content-container {
+    display: none;
+    width: 100%;
+    height: 93%;
+    overflow: hidden;
+}
+
+.content-container.selected {
+    display: block;
+}
+
+/* 右侧内容切换块
+ ============================================================================ */
+.right-container-switch {
+    display: flex;
+    align-items: center;
+    height: 7.13%;
+    border: 0.05208333vw #4FA6E5 solid;
+    border-width: 0.05208333vw 0 0.05208333vw 0.05208333vw;
+    font-size: 1.25vw;
+    font-weight: bold;
+    background: #154465;
+}
+
+.switch-button {
+    float: left;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    line-height: 3vw;
+    cursor: pointer;
+}
+
+.switch-button.selected, .switch-button:hover {
+    border-bottom: 0.104166667vw solid #ffb317;
+    color: #ffb317;
+    background: rgba(255, 179, 23, 0.3);
+}
+

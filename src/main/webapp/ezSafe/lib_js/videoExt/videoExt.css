@@ -1,0 +1,209 @@
+.fs-video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.fs-video-zoom {
+    width: 100%;
+    height: 100%;
+}
+
+.fs-video {
+    position: relative;
+}
+
+.fs-video-controls div, input {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fs-play-pause {
+    width: 2.984%;
+    height: 57.6%;
+    margin-left: 2%;
+    margin-right:1%;
+    cursor: pointer;
+}
+
+.fs-play-pause.play {
+    background: url("images/fs-video-play-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-play-pause.play:hover {
+    background: url("images/fs-video-play-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-play-pause.pause {
+    background: url("images/fs-video-pause-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-play-pause.pause:hover {
+    background: url("images/fs-video-pause-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    opacity: 0;
+    background-color: rgba(2, 22, 43, 0.67);
+    box-shadow: 0 0 20px 1px rgba(79, 166, 229, 0.98) inset;
+    color: #fff;
+    border-top: 1px solid #4FA6E5;
+    -webkit-transition: opacity .3s;
+    line-height: 0;
+    width: 100%;
+    height: 5%;
+    color: #fff;
+}
+
+.fs-video-container:hover .fs-video-controls {
+    opacity: .9;
+}
+
+.fs-video-container button {
+    background: rgba(0, 0, 0, .5);
+    border: 0;
+    color: #EEE;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+.fs-seek-bar {
+    width: 74%;
+    margin-right: 3%;
+}
+
+.fs-volume-bar {
+    width: 20%;
+    margin-right: 12%;
+}
+
+.fs-video-controls .rotate {
+    margin-right: 9%;
+}
+
+.fs-video-controls input[type="range"] {
+    background: linear-gradient(90deg,#4FA6E5 0%,white 0%);
+    border-radius: 1%;
+    -webkit-appearance: none;
+    height: 0.1vw;
+    outline: none;
+}
+
+.fs-video-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.6vw;
+    width: 0.55vw;
+    transform: translateY(0.05vw);
+    background: #fff;
+    border-radius: 0.8333333333vw;
+    cursor: pointer;
+}
+
+.fs-video-controls input[type="range"]::-webkit-slider-thumb:hover {
+    background:rgba(250, 188, 61, 0.85);
+}
+
+.fs-left-rotate {
+    width: 6.96%;
+    height: 57.6%;
+    cursor: pointer;
+    background: url("images/fs-video-left-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-left-rotate:hover{
+    background: url("images/fs-video-left-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-right-rotate {
+    width: 6.96%;
+    height: 57.6%;
+    cursor: pointer;
+    background: url("images/fs-video-right-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+.fs-right-rotate:hover{
+    background: url("images/fs-video-right-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-mute{
+    width: 6.96%;
+    height: 57.6%;
+    margin-right:3%;
+    cursor: pointer;
+}
+
+.fs-mute.yl{
+    background: url("images/fs-video-yl-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-mute.yl:hover{
+    background: url("images/fs-video-yl-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-mute.jy{
+    background: url("images/fs-video-jy-n.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-mute.jy:hover{
+    background: url("images/fs-video-jy-h.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.fs-full-screen{
+    cursor: pointer;
+    width: 6.96%;
+    height: 57.6%;
+    background: url("images/fs-video-full-n.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 6%;
+}
+
+.fs-full-screen:hover{
+    background: url("images/fs-video-full-h.png") no-repeat;
+}
+
+.fs-video-time{
+    height:100%;
+    width:10%;
+    font-size: 81%;
+    line-height:220%;
+    cursor:default !important;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.fs-controls-left{
+    width: 70%;
+    height: 100%;
+    display:inline-block;
+    line-height:0;
+    text-align: left;
+}
+
+.fs-controls-right{
+    width: 30%;
+    height: 100%;
+    display:inline-block;
+    line-height:0;
+    text-align: right;
+}

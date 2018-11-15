@@ -1,0 +1,166 @@
+.comOrgTree-container {
+    width: 100%;
+    height: 100%;
+}
+
+.comOrgTree-search-row {
+    height: 4%;
+    min-height: 1.875vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: relative;
+}
+
+.comOrgTree-input {
+    float: left;
+    width: calc(96% - 1.875vw);
+    height: 100%;
+    padding-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    flex: 1;
+}
+
+.comOrgTree-input[type=text] {
+    box-shadow: 0 0 0.78125vw 2px rgba(82, 114, 191, 0.64) inset;
+    border: 1px solid #4fa6e5;
+    border-right: none;
+    font-size: 0.8333333333333333vw;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    background-color: transparent;
+}
+
+.comOrgTree-input-color {
+    color: #fff;
+}
+
+.comOrgTree-input::-ms-clear,
+.comOrgTree-input::-ms-reveal {
+    display: none;
+}
+
+.comOrgTree-input:-ms-input-placeholder,
+.comOrgTree-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8333333333333333vw;
+}
+
+.comOrgTree-button {
+    float: left;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.comOrgTree-button.search-button {
+    width: 1.875vw;
+    height: 1.875vw;
+    background-image: url(../../icons/common-search-1-n.png);
+}
+
+.comOrgTree-button.search-button:hover {
+    background-image: url(../../icons/common-search-1-h.png);
+}
+
+.comOrgTree-button.reset-button {
+    width: 1.041666666666667vw;
+    height: 1.041666666666667vw;
+    position: absolute;
+    right: 13%;
+    top: 22%;
+    z-index: 10;
+    background-image: url(../../icons/xtwy-allr-clear-input-n.png);
+    display: none;
+}
+
+.comOrgTree-button.reset-button:hover {
+    background-image: url(../../icons/xtwy-allr-clear-input-h.png);
+}
+
+.comOrgTree-container .comOrgTree-listview,
+.comOrgTree-container .comOrgTree-treeview {
+    height: 95.5%;
+    margin-top: 1%;
+    padding-top: 1%;
+    border-top: 1px solid transparent;
+    background-color: transparent;
+    overflow: auto;
+}
+
+.comOrgTree-container div {
+    scrollbar-arrow-color: #6AC1FF;
+    scrollbar-face-color: #11496F;
+    scrollbar-track-color: #11496F;
+    scrollbar-shadow-color: #65B5ED;
+    scrollbar-highlight-color: #65B5ED;
+    scrollbar-3dlight-color: #11496F;
+    scrollbar-darkshadow-color: #11496F;
+}
+
+.comOrgTree-container .k-treeview .k-plus {
+    background-repeat: no-repeat;
+    background-image: url("../../icons/common-treeview-collapse.png");
+}
+
+.comOrgTree-container .k-treeview .k-minus {
+    background-repeat: no-repeat;
+    background-image: url("../../icons/common-treeview-expand.png");
+}
+
+.comOrgTree-container .k-in {
+    color: white !important;
+    font-size: 0.9375vw !important;
+    font-weight: 500;
+    cursor: pointer !important;
+    width: 95%;
+    height: 4vh;
+    line-height: 4vh;
+}
+
+.comOrgTree-container .tree-selected {
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}
+
+.comOrgTree-container .k-treeview .k-state-selected, .comOrgTree-container .k-treeview .k-state-hover, .comOrgTree-container .k-treeview .k-state-focused {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    border: none;
+}
+
+.comOrgTree-container .k-top, .comOrgTree-container .k-mid, .comOrgTree-container .k-bot {
+    width: 17.96875vw;
+    height: 2.1875vw;
+    line-height: 1.875vw;
+    padding-left: 1.302083333333333vw;
+    user-select: none;
+    cursor: pointer;
+}
+
+.comOrgTree-container .k-state-hover, .comOrgTree-container .k-state-selected {
+    border: none;
+}
+
+/*listview*/
+.comOrgTree-container .orgListItem {
+    margin-left: 1%;
+    width: 91%;
+    height: 2.1875vw;
+    line-height: 1.875vw;
+    padding-left: 0.1302083333333333vw;
+    user-select: none;
+    cursor: pointer;
+    color: white !important;
+    font-size: 0.9375vw !important;
+    font-weight: 500;
+    cursor: pointer !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.comOrgTree-container .orgList-select {
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}

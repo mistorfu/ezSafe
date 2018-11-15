@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kedacom.ezSafe.common.dao.BQjXzqyDao" >
+
+    <!-- Mapper 生成时间: 2017-12-2 10:32:23 -->
+    <!-- 注意：重新生成时会把之前的mapper重命名为: *Mapper.xml.backup -->
+
+    <!-- 默认缓存
+    <cache />
+    -->
+
+    <resultMap id="BaseResultMap" type="com.kedacom.ezSafe.common.domain.BQjXzqy" >
+        <id column="XZBM" property="xzbm" jdbcType="VARCHAR" />
+        <result column="XZMC" property="xzmc" jdbcType="VARCHAR" />
+        <result column="XZJB" property="xzjb" jdbcType="DECIMAL" />
+        <result column="XZQH" property="xzqh" jdbcType="VARCHAR" />
+        <result column="XZNBBM" property="xznbbm" jdbcType="VARCHAR" />
+        <result column="XZJC" property="xzjc" jdbcType="VARCHAR" />
+        <result column="XSSX" property="xssx" jdbcType="VARCHAR" />
+        <result column="SFKY" property="sfky" jdbcType="VARCHAR" />
+        <result column="QYPY" property="qypy" jdbcType="VARCHAR" />
+        <result column="YLZD1" property="ylzd1" jdbcType="VARCHAR" />
+        <result column="YLZD2" property="ylzd2" jdbcType="VARCHAR" />
+        <result column="YLZD3" property="ylzd3" jdbcType="VARCHAR" />
+        <result column="ZFJG" property="zfjg" jdbcType="VARCHAR" />
+        <result column="XMIN" property="xmin" jdbcType="VARCHAR" />
+        <result column="YMIN" property="ymin" jdbcType="VARCHAR" />
+        <result column="XMAX" property="xmax" jdbcType="VARCHAR" />
+        <result column="YMAX" property="ymax" jdbcType="VARCHAR" />
+        <result column="XZFBM" property="xzfbm" jdbcType="VARCHAR" />
+        <result column="MCJC" property="mcjc" jdbcType="VARCHAR" />
+        <result column="XCENTER" property="xcenter" jdbcType="VARCHAR" />
+        <result column="YCENTER" property="ycenter" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and  ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition}  #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                    #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and  ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition}  #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                    #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Map_Where_Clause">
+        <if test="xzbm != null and xzbm != ''" >
+        and XZBM = #{xzbm}
+        </if>
+        <if test="xzbms_in != null and xzbms_in != ''" >
+        and XZBM in (${xzbms_in})
+        </if>
+        <if test="xzmc != null and xzmc != ''" >
+        and XZMC like '%' || #{xzmc} || '%'
+        </if>
+        <if test="xzjb != null and xzjb != ''" >
+        and XZJB = #{xzjb}
+        </if>
+        <if test="xzqh != null and xzqh != ''" >
+        and XZQH = #{xzqh}
+        </if>
+        <if test="xznbbm != null and xznbbm != ''" >
+        and XZNBBM like '%' || #{xznbbm} || '%'
+        </if>
+        <if test="xzjc != null and xzjc != ''" >
+        and XZJC = #{xzjc}
+        </if>
+        <if test="xssx != null and xssx != ''" >
+        and XSSX = #{xssx}
+        </if>
+        <if test="sfky != null and sfky != ''" >
+        and SFKY = #{sfky}
+        </if>
+        <if test="qypy != null and qypy != ''" >
+        and QYPY = #{qypy}
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''" >
+        and YLZD1 = #{ylzd1}
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''" >
+        and YLZD2 = #{ylzd2}
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''" >
+        and YLZD3 = #{ylzd3}
+        </if>
+        <if test="zfjg != null and zfjg != ''" >
+        and ZFJG = #{zfjg}
+        </if>
+        <if test="xmin != null and xmin != ''" >
+        and XMIN = #{xmin}
+        </if>
+        <if test="ymin != null and ymin != ''" >
+        and YMIN = #{ymin}
+        </if>
+        <if test="xmax != null and xmax != ''" >
+        and XMAX = #{xmax}
+        </if>
+        <if test="ymax != null and ymax != ''" >
+        and YMAX = #{ymax}
+        </if>
+        <if test="xzfbm != null and xzfbm != ''" >
+        and XZFBM = #{xzfbm}
+        </if>
+        <if test="xzfbm_in != null and xzfbm_in != ''" >
+        and XZFBM in (${xzfbm_in})
+        </if>
+        <if test="mcjc != null and mcjc != ''" >
+        and MCJC = #{mcjc}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Where_Clause" >
+        <if test="xzbm != null and xzbm != ''" >
+            and XZBM = #{item.xzbm}
+        </if>
+        <if test="xzmc != null and xzmc != ''" >
+            and XZMC = #{item.xzmc}
+        </if>
+        <if test="xzjb != null and xzjb != ''" >
+            and XZJB = #{item.xzjb}
+        </if>
+        <if test="xzqh != null and xzqh != ''" >
+            and XZQH = #{item.xzqh}
+        </if>
+        <if test="xznbbm != null and xznbbm != ''" >
+            and XZNBBM = #{item.xznbbm}
+        </if>
+        <if test="xzjc != null and xzjc != ''" >
+            and XZJC = #{item.xzjc}
+        </if>
+        <if test="xssx != null and xssx != ''" >
+            and XSSX = #{item.xssx}
+        </if>
+        <if test="sfky != null and sfky != ''" >
+            and SFKY = #{item.sfky}
+        </if>
+        <if test="qypy != null and qypy != ''" >
+            and QYPY = #{item.qypy}
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''" >
+            and YLZD1 = #{item.ylzd1}
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''" >
+            and YLZD2 = #{item.ylzd2}
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''" >
+            and YLZD3 = #{item.ylzd3}
+        </if>
+        <if test="zfjg != null and zfjg != ''" >
+            and ZFJG = #{item.zfjg}
+        </if>
+        <if test="xmin != null and xmin != ''" >
+            and XMIN = #{item.xmin}
+        </if>
+        <if test="ymin != null and ymin != ''" >
+            and YMIN = #{item.ymin}
+        </if>
+        <if test="xmax != null and xmax != ''" >
+            and XMAX = #{item.xmax}
+        </if>
+        <if test="ymax != null and ymax != ''" >
+            and YMAX = #{item.ymax}
+        </if>
+        <if test="xzfbm != null and xzfbm != ''" >
+            and XZFBM = #{item.xzfbm}
+        </if>
+        <if test="mcjc != null and mcjc != ''" >
+            and MCJC = #{item.mcjc}
+        </if>
+    </sql>
+
+    <sql id="Map_Update_Clause" >
+        <if test="xzmc != null" >
+            XZMC = #{xzmc},
+        </if>
+        <if test="xzjb != null and xzjb != ''" >
+            XZJB = #{xzjb},
+        </if>
+        <if test="xzqh != null and xzqh != ''" >
+            XZQH = #{xzqh},
+        </if>
+        <if test="xznbbm != null and xznbbm != ''" >
+            XZNBBM = #{xznbbm},
+        </if>
+        <if test="xzjc != null" >
+            XZJC = #{xzjc},
+        </if>
+        <if test="xssx != null and xssx != ''" >
+            XSSX = #{xssx},
+        </if>
+        <if test="sfky != null and sfky != ''" >
+            SFKY = #{sfky},
+        </if>
+        <if test="qypy != null and qypy != ''" >
+            QYPY = #{qypy},
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''" >
+            YLZD1 = #{ylzd1},
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''" >
+            YLZD2 = #{ylzd2},
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''" >
+            YLZD3 = #{ylzd3},
+        </if>
+        <if test="zfjg != null" >
+            ZFJG = #{zfjg},
+        </if>
+        <if test="xmin != null" >
+            XMIN = #{xmin},
+        </if>
+        <if test="ymin != null" >
+            YMIN = #{ymin},
+        </if>
+        <if test="xmax != null" >
+            XMAX = #{xmax},
+        </if>
+        <if test="ymax != null" >
+            YMAX = #{ymax},
+        </if>
+        <if test="xzfbm != null and xzfbm != ''" >
+            XZFBM = #{xzfbm},
+        </if>
+        <if test="mcjc != null and mcjc != ''" >
+            MCJC = #{mcjc},
+        </if>
+        <if test="xcenter != null" >
+            XCENTER = #{xcenter},
+        </if>
+        <if test="ycenter != null" >
+            YCENTER = #{ycenter}
+        </if>
+    </sql>
+
+    <sql id="Map_Item_Update_Clause" >
+        <if test="xzmc != null and xzmc != ''" >
+        XZMC = #{item.xzmc},
+        </if>
+        <if test="xzjb != null and xzjb != ''" >
+        XZJB = #{item.xzjb},
+        </if>
+        <if test="xzqh != null and xzqh != ''" >
+        XZQH = #{item.xzqh},
+        </if>
+        <if test="xznbbm != null and xznbbm != ''" >
+        XZNBBM = #{item.xznbbm},
+        </if>
+        <if test="xzjc != null and xzjc != ''" >
+        XZJC = #{item.xzjc},
+        </if>
+        <if test="xssx != null and xssx != ''" >
+        XSSX = #{item.xssx},
+        </if>
+        <if test="sfky != null and sfky != ''" >
+        SFKY = #{item.sfky},
+        </if>
+        <if test="qypy != null and qypy != ''" >
+        QYPY = #{item.qypy},
+        </if>
+        <if test="ylzd1 != null and ylzd1 != ''" >
+        YLZD1 = #{item.ylzd1},
+        </if>
+        <if test="ylzd2 != null and ylzd2 != ''" >
+        YLZD2 = #{item.ylzd2},
+        </if>
+        <if test="ylzd3 != null and ylzd3 != ''" >
+        YLZD3 = #{item.ylzd3},
+        </if>
+        <if test="zfjg != null and zfjg != ''" >
+        ZFJG = #{item.zfjg},
+        </if>
+        <if test="xmin != null and xmin != ''" >
+        XMIN = #{item.xmin},
+        </if>
+        <if test="ymin != null and ymin != ''" >
+        YMIN = #{item.ymin},
+        </if>
+        <if test="xmax != null and xmax != ''" >
+        XMAX = #{item.xmax},
+        </if>
+        <if test="ymax != null and ymax != ''" >
+        YMAX = #{item.ymax},
+        </if>
+        <if test="xzfbm != null and xzfbm != ''" >
+        XZFBM = #{item.xzfbm},
+        </if>
+        <if test="mcjc != null and mcjc != ''" >
+        MCJC = #{item.mcjc}
+        </if>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        XZBM,
+        XZMC,
+        XZJB,
+        XZQH,
+        XZNBBM,
+        XZJC,
+        XSSX,
+        SFKY,
+        QYPY,
+        YLZD1,
+        YLZD2,
+        YLZD3,
+        ZFJG,
+        XMIN,
+        YMIN,
+        XMAX,
+        YMAX,
+        XZFBM,
+        MCJC,
+        XCENTER,
+        YCENTER
+    </sql>
+
+    <sql id="Base_Property_List" >
+    #{xzbm},
+    #{xzmc},
+    #{xzjb},
+    #{xzqh},
+    #{xznbbm},
+    #{xzjc},
+    #{xssx},
+    #{sfky},
+    #{qypy},
+    #{ylzd1},
+    #{ylzd2},
+    #{ylzd3},
+    #{zfjg},
+    #{xmin},
+    #{ymin},
+    #{xmax},
+    #{ymax},
+    #{xzfbm},
+    #{mcjc},
+    #{xcenter},
+    #{ycenter}
+    </sql>
+
+    <sql id="Base_Item_Property_List" >
+    #{item.xzbm},
+    #{item.xzmc},
+    #{item.xzjb},
+    #{item.xzqh},
+    #{item.xznbbm},
+    #{item.xzjc},
+    #{item.xssx},
+    #{item.sfky},
+    #{item.qypy},
+    #{item.ylzd1},
+    #{item.ylzd2},
+    #{item.ylzd3},
+    #{item.zfjg},
+    #{item.xmin},
+    #{item.ymin},
+    #{item.xmax},
+    #{item.ymax},
+    #{item.xzfbm},
+    #{item.mcjc}
+    </sql>
+
+    <!-- 对应 Dao.insert 方法 -->
+    <insert id="insert"  parameterType="com.kedacom.ezSafe.common.domain.BQjXzqy">
+        insert into B_QJ_XZQY ( <include refid="Base_Column_List" /> )
+        values ( <include refid="Base_Property_List" />  )
+    </insert>
+
+    <!-- 对应 Dao.insertPatch 方法 -->
+    <insert id="insertPatch"  parameterType="java.util.List">
+        insert into B_QJ_XZQY ( <include refid="Base_Column_List" /> )
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+        (
+            <include refid="Base_Item_Property_List" />
+        )
+        </foreach>
+    </insert>
+
+
+    <!-- 对应 Dao.selectByKey 方法 -->
+    <select id="selectByKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from B_QJ_XZQY
+        where 1 = 1
+            and XZBM = #{xzbm}
+    </select>
+
+    <select id="getChildrenByXZBM" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select * from B_QJ_XZQY
+        where XZFBM in (${_parameter})
+        order by XZBM asc
+    </select>
+
+    <select id="countChildrenByXZBM" resultType="java.lang.Integer" parameterType="java.lang.String" >
+        select count(*) from B_QJ_XZQY
+        where XZFBM in (${_parameter})
+    </select>
+
+    <select id="getXznbbmByXZBM" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select * from B_QJ_XZQY
+        where 1=1
+        and XZBM = #{name}
+        ORDER BY XZJB ASC
+    </select>
+
+    <select id="getXznbbmByXZMC" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select * from(select * from B_QJ_XZQY
+        where 1=1
+        and XZMC LIKE '%' || #{name} || '%'
+        ORDER BY XZJB ASC)
+        where rownum = 1
+    </select>
+
+    <select id="searchXzqhByQypy" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select * from B_QJ_XZQY
+        where 1=1
+        and QYPY LIKE '%' || #{name} || '%'
+        AND XZNBBM LIKE #{xznbbm} || '%'
+        ORDER BY XZBM ASC
+    </select>
+
+    <!-- 对应 Dao.selectByExample 方法 -->
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from B_QJ_XZQY
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null and orderByClause != ''" >
+            order by  ${orderByClause}
+        </if>
+    </select>
+
+    <!-- 对应 Dao.selectByMap 方法 -->
+    <select id="selectByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from B_QJ_XZQY
+        where 1 = 1
+        <include refid="Map_Where_Clause" />
+        <if test="orderByClause != null and orderByClause != ''" >
+            order by  ${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectXzqyChain" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from B_QJ_XZQY
+        where 1=1
+        START WITH XZBM = #{xzbm} CONNECT BY PRIOR XZFBM = XZBM
+    </select>
+
+    <!-- 对应 Dao.countByMap 方法 -->
+    <select id="countByMap" parameterType="java.util.Map" resultType="java.lang.Integer" >
+        select count(*) from B_QJ_XZQY
+        where 1 = 1
+        <include refid="Map_Where_Clause" />
+    </select>
+
+    <!-- 对应 Dao.countByExample 方法 -->
+    <select id="countByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample" resultType="java.lang.Integer" >
+        select count(*) from B_QJ_XZQY
+        <if test="_parameter != null and _parameter != ''" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <!-- 对应 Dao.updateByKey 方法 -->
+    <update id="updateByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjXzqy" >
+        update B_QJ_XZQY
+        <set>
+            <include refid="Map_Update_Clause" />
+        </set>
+        where
+        XZBM = #{xzbm} 
+    </update>
+
+    <!-- 对应 Dao.updatePatchByKey 方法 -->
+    <update id="updatePatchByKey" parameterType="com.kedacom.ezSafe.common.domain.BQjXzqy" >
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_XZQY
+            <set>
+                <include refid="Map_Item_Update_Clause" />
+            </set>
+            where
+            #{item.XZBM} = #{xzbm} 
+        </foreach>
+    </update>
+
+    <!-- 对应 Dao.updateByMap 方法 -->
+    <update id="updateByMap" parameterType="java.util.Map">
+        update B_QJ_XZQY
+        <set>
+            <include refid="Map_Update_Clause" />
+        </set>
+        where 1 = 1 and
+        XZBM = #{xzbm} 
+    </update>
+
+    <!-- 对应 Dao.updatePatchByMap 方法 -->
+    <select id="updatePatchByMap" parameterType="java.util.List">
+
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update B_QJ_XZQY
+            <set>
+                <include refid="Map_Item_Update_Clause" />
+            </set>
+            where 1 = 1 and
+            XZBM = #{xzbm} 
+        </foreach>
+    </select>
+
+    <!-- 对应 Dao.deleteByKey 方法 -->
+    <delete id="deleteByKey" parameterType="java.lang.String" >
+        delete from B_QJ_XZQY
+        where 1 = 1
+            and XZBM = #{xzbm}
+    </delete>
+
+    <!-- 对应 Dao.deleteByExample 方法 -->
+    <delete id="deleteByExample" parameterType="com.kedacom.avatar.core.dao.mapper.MapperExample" >
+        delete from B_QJ_XZQY
+        <if test="_parameter != null and _parameter != ''" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <!-- 对应 Dao.deleteByMap 方法 -->
+    <delete id="deleteByMap" parameterType="java.util.Map" >
+        delete from B_QJ_XZQY
+        where 1 = 1
+        <include refid="Map_Item_Where_Clause" />
+    </delete>
+
+    <select id="find" parameterType="int" resultMap="BaseResultMap">
+        SELECT * FROM B_QJ_XZQY
+
+        <if test="xzjb!=-1">
+            where XZJB &lt;= #{xzjb}
+        </if>
+        ORDER BY XZBM
+    </select>
+
+    <select id="findAllByXzbm" parameterType="string" resultMap="BaseResultMap">
+        select * from B_QJ_XZQY START WITH XZBM = #{xzbm}
+        CONNECT BY PRIOR XZBM =XZFBM
+        ORDER BY XZNBBM
+    </select>
+
+
+    <select id="findByXzbm" parameterType="string" resultType="com.kedacom.ezSafe.common.domain.BQjXzqy">
+        SELECT * FROM B_QJ_XZQY WHERE XZBM=#{xzbm}
+    </select>
+
+    <select id="checkXzqyChildren" resultType="java.util.HashMap">
+        select xzfbm, count(xzbm) as childrenNum from b_qj_xzqy
+        <where>
+            <if test="xzbms != null">
+                xzfbm in (
+                <foreach collection="xzbms" item="xzbm" index="index" separator="," >
+                    #{xzbm,jdbcType=VARCHAR}
+                </foreach>
+                )
+            </if>
+        </where>
+        group by xzfbm
+    </select>
+</mapper>

@@ -1,0 +1,208 @@
+.comRegionTree-container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+}
+
+.comRegionTree-search-row {
+    height: 4%;
+    min-height: 1.875vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: relative;
+}
+
+.comRegionTree-input {
+    float: left;
+    width: calc(96% - 1.875vw);
+    height: 100%;
+    padding-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    flex: 1;
+}
+
+.comRegionTree-input[type=text] {
+    box-shadow: 0 0 0.78125vw 2px rgba(82, 114, 191, 0.64) inset;
+    border: 1px solid #4fa6e5;
+    border-right: none;
+    font-size: 0.8333333333333333vw;
+    font-family: "Microsoft YaHei";
+    background-color: transparent;
+}
+
+.comRegionTree-input-color {
+    color: #fff;
+}
+
+.comRegionTree-input::-ms-clear,
+.comRegionTree-input::-ms-reveal {
+    display: none;
+}
+
+.comRegionTree-input:-ms-input-placeholder,
+.comRegionTree-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8333333333333333vw;
+}
+
+.comRegionTree-button {
+    float: left;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.comRegionTree-button.search-button {
+    width: 1.875vw;
+    height: 1.875vw;
+    background-image: url(../../icons/common-search-1-n.png);
+}
+
+.comRegionTree-button.search-button:hover {
+    background-image: url(../../icons/common-search-1-h.png);
+}
+
+.comRegionTree-button.reset-button {
+    width: 1.041666666666667vw;
+    height: 1.041666666666667vw;
+    position: absolute;
+    right: 13%;
+    top: 22%;
+    z-index: 10;
+    background-image: url(../../icons/common-clear-input-n.png);
+    display: none;
+}
+
+.comRegionTree-button.reset-button:hover {
+    background-image: url(../../icons/common-clear-input-h.png);
+}
+
+.comRegionTree-container .comRegionTree-content {
+    display: none;
+    flex: 1 1 87.5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.comRegionTree-container .comRegionTree-treeview,
+.comRegionTree-container .comRegionTree-listview,
+.comRegionTree-container .comRegionTree-wgxx {
+    margin-top: 1%;
+    padding-top: 1%;
+    border-top: 1px solid transparent;
+    border-width: 0;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.comRegionTree-container .comRegionTree-content.selected {
+    display: block;
+}
+
+.comRegionTree-container div {
+    scrollbar-arrow-color: #6AC1FF;
+    scrollbar-face-color: #11496F;
+    scrollbar-track-color: #11496F;
+    scrollbar-shadow-color: #65B5ED;
+    scrollbar-highlight-color: #65B5ED;
+    scrollbar-3dlight-color: #11496F;
+    scrollbar-darkshadow-color: #11496F;
+}
+
+.comRegionTree-container .k-treeview .k-plus {
+    background-repeat: no-repeat;
+    background-image: url("../../icons/common-treeview-collapse.png");
+}
+
+.comRegionTree-container .k-treeview .k-minus {
+    background-repeat: no-repeat;
+    background-image: url("../../icons/common-treeview-expand.png");
+}
+
+.comRegionTree-container .k-in {
+    color: white !important;
+    font-size: 0.9375vw !important;
+    font-weight: 500;
+    cursor: pointer !important;
+    width: 95%;
+    height: 4vh;
+    line-height: 4vh;
+}
+
+.comRegionTree-container .tree-selected {
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}
+
+.comRegionTree-container .k-treeview .k-state-selected, .comRegionTree-container .k-treeview .k-state-hover, .comRegionTree-container .k-treeview .k-state-focused {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    border: none;
+}
+
+.comRegionTree-container .k-top, .comRegionTree-container .k-mid, .comRegionTree-container .k-bot {
+    width: 17.96875vw;
+    height: 2.1875vw;
+    line-height: 1.875vw;
+    padding-left: 1.302083333333333vw;
+    user-select: none;
+    cursor: pointer;
+}
+
+.comRegionTree-container .k-state-hover, .comRegionTree-container .k-state-selected {
+    border: none;
+}
+
+/*listview*/
+.comRegionTree-container .orgListItem, .comRegionTree-container .wgxxListItem {
+    margin-left: 1%;
+    width: 91%;
+    height: 2.1875vw;
+    line-height: 1.875vw;
+    padding-left: 1.302083333333333vw;
+    user-select: none;
+    cursor: pointer;
+    color: white !important;
+    font-size: 0.9375vw !important;
+    font-weight: 500;
+    cursor: pointer !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.comRegionTree-container .orgList-select {
+    background-image: url("../../images/common-treeview370x42-h.png");
+    background-size: 100% 100%;
+}
+
+.comRegionTree-tab-container {
+    flex: 0 0 5vh;
+    display: flex;
+    margin: 0 1vh 1vh;
+    border-bottom: 0.05208333vw #4FA6E5 solid;
+}
+
+.comRegionTree-tab-container .tab-button {
+    position: relative;
+    top: 1px;
+    width: 50%;
+    height: 5vh;
+    padding: 1vh;
+    color: #d4edff;
+    font-size: 1.15vw;
+    text-align: center;
+    cursor: pointer;
+}
+
+.comRegionTree-tab-container .tab-button.selected {
+    color: #ffbe26;
+    border-bottom: 0.15vw #ffbe26 solid;
+}
+
+.hidden {
+    display: none;
+}

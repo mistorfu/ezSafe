@@ -1,0 +1,171 @@
+.sccn-window-title {
+    height: 7%;
+}
+
+.sccnWindow-title-background1 {
+    width: 100%;
+    height: 60%;
+    top: 0;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#00528D', endColorStr='#003053', gradientType=0);
+    z-index: 0;
+    background-image: none, -webkit-linear-gradient(top, #00528D 0, #003053 100%);
+    background-image: none, linear-gradient(to bottom, #00528D 0, #003053 100%);
+}
+.sccnWindow-title-background2 {
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+    left: 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#003053', endColorStr='#00528D', gradientType=0);
+    z-index: 0;
+    background-image: none, -webkit-linear-gradient(top, #003053 0, #00528D 100%);
+    background-image: none, linear-gradient(to bottom, #003053 0, #00528D 100%);
+}
+
+.detail-title {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    padding: 1%;
+    font-size: 1.4vw;
+    color: #fff;
+    /*margin-left: 1%;*/
+}
+.sccn-container {
+    float: right;
+    height: 81.5%;
+    width: 95%;
+    padding: 2%;
+    margin: 1.5% 0.5%;
+    color: #36a9e1;
+    background: rgb(13, 84, 138);
+    background-clip: padding-box;
+    overflow-y: scroll;
+    -ms-overflow-style:none;
+}
+.sccn-container::-webkit-scrollbar {
+    display:none;
+}
+
+.sccn-line-wrapper {
+    float: left;
+    width: 33%;
+    height: 5vh;
+    font-size: 1.1vw;
+}
+
+.sccn-line-wrapper .label {
+    display: inline-block;
+    width: 27.59%;
+    height: 100%;
+    text-align: right;
+    padding: 1vh 0 0 0;
+    color: #d4edff;
+}
+
+.cnnr-detail{
+    display: block;
+    text-align: justify;
+    text-align-last: justify;
+    line-height: 2.3vw;
+    padding-bottom: 0.4vw;
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+    word-break: normal;
+}
+.bzxx-detail{
+    display: inherit;
+    line-height: 2.3vw;
+    padding-bottom: 0.4vw;
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+}
+
+.sccn-line-wrapper .line-content {
+    display: inline-block;
+    width: 60%;
+    height: 70%;
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+    padding: 1vh 0 0 0;
+    margin-left: 0.1vw;
+    color: #4fa6e5;
+}
+
+.sccn-line-wrapper-block{
+    float: left;
+    width: 100%;
+    font-size: 1.1vw;
+}
+.sccn-line-wrapper-block .label {
+    float: left;
+    display: inline-block;
+    width: 9.1%;
+    text-align: right;
+    padding: 1vh 0 0 0;
+    margin-right: 0.8%;
+    color: #d4edff;
+}
+.sccn-line-wrapper-block .line-content, .sccn-line-wrapper-block .bzxx-line-content {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    width: 86%;
+    padding: 0.1vh 0 0 0;
+    color: #4fa6e5;
+}
+.sccn-line-wrapper-block .bzxx-line-content {
+    border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+}
+.window-close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../../../icons/wxxfz-close-normal.png);
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.window-close-button:hover {
+    background-image: url(../../../../icons/wxxfz-close-hover.png);
+}
+
+.fjxx-right{
+    float: left;
+    width: 86%;
+    display: inline-block;
+}
+.sccn-left-download,.sccn-right-download{
+     display: inline-block;
+     vertical-align: middle;
+     width: 45%;
+    height: 2.3vw;
+     margin-top: 0.5%;
+     border-bottom: rgb(18, 99, 160) dotted 0.1vw;
+ }
+.sccn-left-download {
+    float: left;
+}
+.sccn-right-download {
+    float: right;
+}
+.sccn-fjxx-icon {
+    margin: 0.5% 0 0.5% 1.5%;
+    color: #C8E4F7;
+    background: url(../../../../icons/zbzs-zbdt-xz-n.png) no-repeat;
+    background-size: 6% 90%;
+    background-position-x: 100%;
+}
+.sccn-fjxx-fjmc{
+    display: block;
+    color: #C8E4F7;
+    font-size: 1.1vw;
+    text-decoration: none;
+}
+.sccn-fjxx-icon:hover{
+    background: url(../../../../icons/zbzs-zbdt-xz-h.png) no-repeat;
+    background-size: 6% 90%;
+    background-position-x: 100%;
+}
+.sccn-fjxx-icon:hover .sccn-fjxx-fjmc{
+    color: #ffb317;
+}
