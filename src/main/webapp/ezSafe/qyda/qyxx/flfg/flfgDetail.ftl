@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css"
-      href="<@spring.url '/ezSafe/qyda/aqyh/xcrw.css'/>"/>
+      href="<@spring.url '/ezSafe/qyda/qyxx/aqyh/xcrw.css'/>"/>
 <link rel="stylesheet" type="text/css"
       href="<@spring.url '/ezSafe/qyda/qyxx/flfg/flfgDetail.css'/>"/>
 <script id="flfgFjxxTemplate" type="text/x-kendo-template">

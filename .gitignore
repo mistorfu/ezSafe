@@ -1,0 +1,7 @@
+/.gradle
+/.hg
+/.idea
+/build
+/out
+/src/main/webapp/WEB-INF/classes
+.hgignore

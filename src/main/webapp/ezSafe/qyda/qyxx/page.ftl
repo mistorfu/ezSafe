@@ -51,15 +51,15 @@
 </div>
 
 <div class="main-container" id="main-aqsg">
-    <#include "/ezSafe/qyda/aqsg/aqsg.ftl" />
+    <#include "/ezSafe/qyda/qyxx/aqsg/aqsg.ftl" />
 </div>
 
 <div class="main-container" id="main-aqyh">
-    <#include "/ezSafe/qyda/aqyh/aqyh.ftl" />
+    <#include "/ezSafe/qyda/qyxx/aqyh/aqyh.ftl" />
 </div>
 
 <div class="main-container" id="main-yjya">
-    <#include "/ezSafe/qyda/yjya/yjya.ftl" />
+    <#include "/ezSafe/qyda/qyxx/yjya/yjya.ftl" />
 </div>
 
 <script data-main="<@spring.url '/ezSafe/qyda/qyxx/page.js'/>"

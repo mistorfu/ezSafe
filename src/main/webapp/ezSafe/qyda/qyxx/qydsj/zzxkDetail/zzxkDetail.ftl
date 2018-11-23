@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css"
       href="<@spring.url '/ezSafe/qyda/qyxx/qydsj/zzxkDetail/zzxkDetail.css'/>"/>
-<#--<link rel="stylesheet" type="text/css" href="<@spring.url '/ezSafe/qyda/aqyh/xcrw.css'/>"/>-->
+<#--<link rel="stylesheet" type="text/css" href="<@spring.url '/ezSafe/qyda/qyxx/aqyh/xcrw.css'/>"/>-->
 
 <div class="zzxk-miniFireEdit-title">
     <div class="zzxk-window-title-background1"></div>

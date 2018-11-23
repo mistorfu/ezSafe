@@ -6,9 +6,9 @@ require([CONTEXT_PATH + '/ezSafe/lib_js/avatarConfig.js'], function () {
                 CONTEXT_PATH + '/ezSafe/qyda/qyxx/qyxq/qyxq.js',
                 CONTEXT_PATH + '/ezSafe/qyda/qyxx/zzjg/zzjg.js',
                 CONTEXT_PATH + '/ezSafe/qyda/qyxx/qydsj/qydsj.js',
-                CONTEXT_PATH + '/ezSafe/qyda/aqyh/aqyh.js',
-                CONTEXT_PATH + '/ezSafe/qyda/aqsg/aqsg.js',
-                CONTEXT_PATH + '/ezSafe/qyda/yjya/yjya.js'
+                CONTEXT_PATH + '/ezSafe/qyda/qyxx/aqyh/aqyh.js',
+                CONTEXT_PATH + '/ezSafe/qyda/qyxx/aqsg/aqsg.js',
+                CONTEXT_PATH + '/ezSafe/qyda/qyxx/yjya/yjya.js'
             ], function (Qygk, Flfg, Qyxq, Zzjg, Qydsj, Aqyh, Aqsg, Yjya) {
                 var Page = {
                     components: {},

@@ -66,6 +66,8 @@
 }
 
 .sgfj-row{
+    margin: .8%;
+    width: 97%;
     height: 16%;
     display:flex;
     align-items: center;
@@ -651,6 +653,8 @@
 }
 
 .jhxcnr-row{
+    margin: .8%;
+    width: 97%;
     height: 16%;
     display:flex;
     align-items: center;
@@ -663,6 +667,8 @@
 }
 
 .sjxcnr-row{
+    margin: .8%;
+    width: 97%;
     height: 16%;
     display:flex;
     align-items: center;
@@ -675,6 +681,8 @@
 }
 
 .jhxcry-row{
+    margin: .8%;
+    width: 97%;
     height: 16%;
     display:flex;
     align-items: center;
@@ -687,6 +695,8 @@
     background-color: #154465;
 }
 .sjxcry-row{
+    margin: .8%;
+    width: 97%;
     height: 16%;
     display:flex;
     align-items: center;
